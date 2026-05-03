@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Link, Zap, Send, Cloud, Github, BrainCircuit, Activity, CheckCircle2 } from "lucide-react";
+import { Link, Zap, Send, Cloud, GitBranch, BrainCircuit, Activity, CheckCircle2 } from "lucide-react";
 import { useEffect, useState } from "react";
 
 // Professional Geometric Scarab SVG Component
@@ -211,7 +211,7 @@ export default function Home() {
               </div>
               <div className="flex flex-col items-center gap-4">
                 <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center">
-                  <Github className="w-8 h-8 text-white" />
+                  <GitBranch className="w-8 h-8 text-white" />
                 </div>
                 <h4 className="font-bold text-lg">GitHub API</h4>
                 <p className="text-sm text-white/50">Robust version control and automated repository syncing.</p>
