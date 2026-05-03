@@ -23,12 +23,9 @@ const TelegramIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const GeometricBeetle = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12 2L12 22" />
-    <path d="M8 12L12 8L16 12" />
-    <path d="M6 16L12 12L18 16" />
-    <path d="M12 2L20 10L12 18L4 10Z" />
+const BeetleIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12,2C10.34,2 9,3.34 9,5L9,5.5C7.26,6.17 6,7.9 6,10V15C6,17.21 7.79,19 10,19V21H8V22H16V21H14V19C16.21,19 18,17.21 18,15V10C18,7.9 16.74,6.17 15,5.5L15,5C15,3.34 13.66,2 12,2M12,4C12.55,4 13,4.45 13,5V6H11V5C11,4.45 11.45,4 12,4M10.5,8H13.5A1.5,1.5 0 0,1 15,9.5V10H9V9.5A1.5,1.5 0 0,1 10.5,8M8,12H16V15A2,2 0 0,1 14,17H10A2,2 0 0,1 8,15V12M19,10H22V12H19V10M2,10H5V12H2V10M17.82,6.41L20.29,3.94L21.71,5.36L19.24,7.83L17.82,6.41M6.18,6.41L4.76,7.83L2.29,5.36L3.71,3.94L6.18,6.41M17.82,17.59L19.24,16.17L21.71,18.64L20.29,20.06L17.82,17.59M6.18,17.59L3.71,20.06L2.29,18.64L4.76,16.17L6.18,17.59Z" />
   </svg>
 );
 
@@ -149,15 +146,10 @@ export default function Home() {
                 />
               </div>
 
-              {/* Beetle Node (Center) - Neon Cyan Glow */}
+              {/* Beetle Node (Center) */}
               <div className="relative z-20 flex flex-col items-center mx-4 md:mx-0">
-                <div className="w-24 h-24 bg-[#111] rounded-xl shadow-[0_0_30px_rgba(0,243,255,0.4)] border border-[#00F3FF]/30 flex items-center justify-center relative overflow-hidden">
-                  <motion.div 
-                    animate={{ opacity: [0.3, 0.8, 0.3] }}
-                    transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-                    className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,243,255,0.2)_0%,transparent_70%)]" 
-                  />
-                  <GeometricBeetle className="w-12 h-12 text-[#00F3FF] relative z-10 drop-shadow-[0_0_8px_rgba(0,243,255,0.8)]" />
+                <div className="w-20 h-20 bg-white border border-[#E5E0D8] rounded-2xl shadow-xl flex items-center justify-center relative">
+                  <BeetleIcon className="w-10 h-10 text-[#2C3B2E]" />
                 </div>
                 <span className="text-[10px] font-bold uppercase tracking-widest mt-4 text-[#1A1A1A]">Vibe Beetle</span>
               </div>
