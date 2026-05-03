@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, Send, Smartphone, Terminal, Zap, Bot, User, Globe, CheckCircle2, Server, Lock } from "lucide-react";
+import { Check, Send, Smartphone, Terminal, Zap, Bot, User, Globe, CheckCircle2, Server, Lock, Code, Database, Layout } from "lucide-react";
 import { useEffect, useState } from "react";
 
 // Custom Icons
@@ -51,8 +51,8 @@ export default function Home() {
         </div>
         <nav className="hidden md:flex gap-10 text-[11px] font-bold uppercase tracking-widest text-[#5A5A5A]">
           <a href="#the-bridge" className="hover:text-[#1A1A1A] transition-colors">The Bridge</a>
-          <a href="#manage-fleet" className="hover:text-[#1A1A1A] transition-colors">Manage Fleet</a>
           <a href="#how-it-works" className="hover:text-[#1A1A1A] transition-colors">How it Works</a>
+          <a href="#manage-fleet" className="hover:text-[#1A1A1A] transition-colors">Manage Fleet</a>
           <a href="#pricing" className="hover:text-[#1A1A1A] transition-colors">Pricing</a>
         </nav>
         <button className="text-[11px] font-bold tracking-widest uppercase bg-[#2C3B2E] text-[#FDFBF7] px-7 py-3 rounded-full hover:bg-[#1A241C] shadow-sm transition-all hover:shadow-md">
@@ -62,7 +62,7 @@ export default function Home() {
 
       <main className="relative z-10 w-full flex flex-col flex-1">
         
-        {/* HERO SECTION - "THE BRIDGE" */}
+        {/* HERO SECTION - "THE UNIVERSAL HERO" */}
         <section id="the-bridge" className="flex flex-col items-center justify-center text-center min-h-[85vh] px-6 pb-20 border-b border-[#E5E0D8] relative overflow-hidden">
           
           <div className="absolute inset-0 z-0 opacity-[0.03] mix-blend-multiply overflow-hidden pointer-events-none">
@@ -85,7 +85,7 @@ export default function Home() {
           >
             <h1 className="text-5xl md:text-7xl lg:text-[7rem] font-bold tracking-tighter uppercase leading-[0.9] mb-8 text-[#1A1A1A]">
               THE BRIDGE FROM <br/>
-              <span className="font-serif italic font-normal text-[#2C3B2E] tracking-normal capitalize" style={{ fontFamily: 'var(--font-playfair)' }}>Chatting to Deployment</span>
+              <span className="font-serif italic font-normal text-[#2C3B2E] tracking-normal capitalize" style={{ fontFamily: 'var(--font-playfair)' }}>Chatting To Coding</span>
             </h1>
           </motion.div>
 
@@ -93,9 +93,9 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, delay: 0.4 }}
-            className="text-lg md:text-xl text-[#5A5A5A] leading-relaxed mb-20 max-w-2xl font-medium tracking-wide relative z-10"
+            className="text-lg md:text-xl text-[#5A5A5A] leading-relaxed mb-20 max-w-3xl font-medium tracking-wide relative z-10"
           >
-            Leverage your existing $20/mo AI subscriptions to build, manage, and deploy from your phone.
+            Turn your Discord into a high-powered web studio. Build, update, and manage your websites entirely through chat—no matter where they are hosted or how many you own.
           </motion.p>
           
           {/* LOGIC BRIDGE ANIMATION */}
@@ -154,114 +154,99 @@ export default function Home() {
           </motion.div>
         </section>
 
-        {/* THE POWER OF YOUR $20 SUB */}
-        <section className="w-full py-32 px-6 border-b border-[#E5E0D8] bg-[#FDFBF7]">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tighter uppercase mb-6 text-[#1A1A1A]">
-              The Power of Your <span className="font-serif italic font-normal text-[#2C3B2E] tracking-normal capitalize" style={{ fontFamily: 'var(--font-playfair)' }}>$20 Sub</span>
-            </h2>
-            <p className="text-[#5A5A5A] text-lg leading-relaxed font-medium mb-16">
-              You are already paying for GPT-4, Claude Opus, or Gemini Advanced. Stop using them just for chat. Vibe Beetle securely leverages your existing API keys to transform conversational AI into a professional-grade, autonomous web orchestration engine.
-            </p>
+        {/* EVERYONE'S INVITED CONTENT */}
+        <section className="w-full py-24 px-6 border-b border-[#E5E0D8] bg-[#FDFBF7]">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-              <div className="p-8 border border-[#E5E0D8] rounded-xl bg-white shadow-sm">
-                <Lock className="w-8 h-8 text-[#2C3B2E] mb-6" />
-                <h3 className="text-xl font-bold uppercase tracking-tight mb-3">Bring Your Own Key</h3>
-                <p className="text-[#5A5A5A] text-sm leading-relaxed">No markup on AI tokens. Plug in your API keys and only pay for exactly what the engine uses directly to OpenAI or Google.</p>
-              </div>
-              <div className="p-8 border border-[#E5E0D8] rounded-xl bg-white shadow-sm">
-                <Bot className="w-8 h-8 text-[#2C3B2E] mb-6" />
-                <h3 className="text-xl font-bold uppercase tracking-tight mb-3">Any LLM Provider</h3>
-                <p className="text-[#5A5A5A] text-sm leading-relaxed">Whether you prefer the reasoning of Claude 3.5 Sonnet or the context window of Gemini 1.5 Pro, Vibe Beetle adapts instantly.</p>
-              </div>
-              <div className="p-8 border border-[#E5E0D8] rounded-xl bg-white shadow-sm">
-                <Server className="w-8 h-8 text-[#2C3B2E] mb-6" />
-                <h3 className="text-xl font-bold uppercase tracking-tight mb-3">Enterprise Security</h3>
-                <p className="text-[#5A5A5A] text-sm leading-relaxed">Keys are encrypted and stored via Google Cloud Secret Manager. Your infrastructure remains completely secure.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* MANAGE YOUR FLEET (3x4 GRID) */}
-        <section id="manage-fleet" className="w-full py-32 px-6 border-b border-[#E5E0D8] bg-[#F9F7F1]">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tighter uppercase mb-6 text-[#1A1A1A]">
-                Manage Your <span className="font-serif italic font-normal text-[#2C3B2E] tracking-normal capitalize" style={{ fontFamily: 'var(--font-playfair)' }}>Fleet</span>
-              </h2>
-              <p className="text-[#5A5A5A] text-lg font-medium max-w-2xl mx-auto">
-                Control a massive digital footprint from a single Discord channel. Deploy blogs, refine SEO, and update codebases across 12+ sites simultaneously.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                { name: "dog-parks.com", status: "Pushed 2m ago", color: "bg-[#57F287]" },
-                { name: "gis-portfolio.dev", status: "Pushed 14m ago", color: "bg-[#57F287]" },
-                { name: "local-seo-expert.io", status: "Building...", color: "bg-[#FEE75C]" },
-                { name: "austin-real-estate.com", status: "Pushed 1h ago", color: "bg-[#57F287]" },
-                { name: "tech-blog-hq.net", status: "Pushed 3h ago", color: "bg-[#57F287]" },
-                { name: "react-components.ui", status: "Pushed 5h ago", color: "bg-[#57F287]" },
-                { name: "daily-journal.me", status: "Syncing...", color: "bg-[#5865F2]" },
-                { name: "indie-hacker-tools.com", status: "Pushed 12h ago", color: "bg-[#57F287]" },
-                { name: "nextjs-templates.org", status: "Pushed 1d ago", color: "bg-[#57F287]" },
-                { name: "startup-landing.io", status: "Pushed 1d ago", color: "bg-[#57F287]" },
-                { name: "cyber-security-news.net", status: "Failed", color: "bg-[#ED4245]" },
-                { name: "vibe-beetle-docs.com", status: "Pushed 2d ago", color: "bg-[#57F287]" }
-              ].map((site, i) => (
-                <motion.div 
-                  key={i}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.4, delay: i * 0.05 }}
-                  className="bg-white border border-[#E5E0D8] rounded-xl p-5 shadow-sm hover:shadow-md transition-all flex items-center justify-between group"
-                >
-                  <div className="flex flex-col">
-                    <span className="font-bold text-[#1A1A1A] text-sm mb-1 group-hover:text-[#2C3B2E] transition-colors">{site.name}</span>
-                    <span className="text-xs text-[#A1A1A1] font-mono flex items-center gap-2">
-                      <Globe className="w-3 h-3" /> https://www.{site.name}
-                    </span>
-                  </div>
-                  <div className="flex flex-col items-end gap-2">
-                    <div className={`w-2 h-2 rounded-full ${site.color}`}></div>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#5A5A5A]">{site.status}</span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* HOW IT WORKS / DEMO */}
-        <section id="how-it-works" className="w-full grid grid-cols-1 lg:grid-cols-2 border-b border-[#E5E0D8] bg-[#FDFBF7]">
-          {/* Left Side: Content */}
-          <div className="p-12 md:p-24 border-b lg:border-b-0 lg:border-r border-[#E5E0D8] flex flex-col justify-center">
             <motion.div 
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1 }}
+              className="flex flex-col"
             >
-              <span className="text-[#A3B09E] font-serif italic text-7xl mb-8 block opacity-50" style={{ fontFamily: 'var(--font-playfair)' }}>02</span>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tighter uppercase mb-6 leading-tight text-[#1A1A1A]">
-                No Laptop. <br/>
-                <span className="font-serif italic font-normal text-[#2C3B2E] tracking-normal capitalize" style={{ fontFamily: 'var(--font-playfair)' }}>Pure Execution.</span>
-              </h2>
-              <p className="text-[#5A5A5A] text-lg leading-relaxed mb-10 font-medium">
-                We built Vibe Beetle for the operator on the move. Orchestrate Google Cloud deployments, GitHub commits, and AI generation entirely through a simple Discord message. Crisp, clean, and invisible.
-              </p>
-              <div className="flex gap-8">
-                <div className="flex items-center gap-2 text-xs text-[#1A1A1A] font-bold tracking-widest uppercase"><Smartphone className="w-4 h-4 text-[#2C3B2E]"/> Mobile Native</div>
-                <div className="flex items-center gap-2 text-xs text-[#1A1A1A] font-bold tracking-widest uppercase"><Terminal className="w-4 h-4 text-[#2C3B2E]"/> Headless OS</div>
+              <div className="w-12 h-12 rounded-full bg-[#F5F2EB] border border-[#E5E0D8] flex items-center justify-center mb-6">
+                <Layout className="w-5 h-5 text-[#2C3B2E]" />
               </div>
+              <h3 className="text-2xl font-bold uppercase tracking-tight mb-4 text-[#1A1A1A]">Your Stack, Our Interface</h3>
+              <p className="text-[#5A5A5A] text-lg leading-relaxed font-medium">
+                Vibe Beetle works where you do. Whether you use Vercel, Netlify, Google Cloud, or GitHub, the Beetle acts as the universal remote for your digital presence. No forced migrations.
+              </p>
             </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ delay: 0.2 }}
+              className="flex flex-col"
+            >
+              <div className="w-12 h-12 rounded-full bg-[#F5F2EB] border border-[#E5E0D8] flex items-center justify-center mb-6">
+                <Database className="w-5 h-5 text-[#2C3B2E]" />
+              </div>
+              <h3 className="text-2xl font-bold uppercase tracking-tight mb-4 text-[#1A1A1A]">From 1 to 100</h3>
+              <p className="text-[#5A5A5A] text-lg leading-relaxed font-medium">
+                Perfect for the solo-preneur with one passion project or the agency managing a massive fleet. Vibe Beetle scales infinitely with your ambition without changing the workflow.
+              </p>
+            </motion.div>
+
+          </div>
+        </section>
+
+        {/* HOW IT WORKS (Plain English Workflow) */}
+        <section id="how-it-works" className="w-full grid grid-cols-1 lg:grid-cols-2 border-b border-[#E5E0D8] bg-[#F9F7F1]">
+          {/* Left Side: 3-Step Content */}
+          <div className="p-12 md:p-24 border-b lg:border-b-0 lg:border-r border-[#E5E0D8] flex flex-col justify-center">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tighter uppercase mb-16 leading-tight text-[#1A1A1A]">
+              The Workflow <br/>
+              <span className="font-serif italic font-normal text-[#2C3B2E] tracking-normal capitalize" style={{ fontFamily: 'var(--font-playfair)' }}>Simplified</span>
+            </h2>
+            
+            <div className="flex flex-col gap-12">
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                className="relative pl-12"
+              >
+                <div className="absolute left-0 top-0 text-[#A3B09E] font-serif italic text-4xl opacity-50" style={{ fontFamily: 'var(--font-playfair)' }}>1</div>
+                <h3 className="text-xl font-bold uppercase tracking-widest text-[#1A1A1A] mb-2 mt-1">Connect</h3>
+                <p className="text-[#5A5A5A] text-base leading-relaxed font-medium">
+                  Link your favorite hosting provider and drop in your AI key.
+                </p>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ delay: 0.1 }}
+                className="relative pl-12"
+              >
+                <div className="absolute left-0 top-0 text-[#A3B09E] font-serif italic text-4xl opacity-50" style={{ fontFamily: 'var(--font-playfair)' }}>2</div>
+                <h3 className="text-xl font-bold uppercase tracking-widest text-[#1A1A1A] mb-2 mt-1">Chat</h3>
+                <p className="text-[#5A5A5A] text-base leading-relaxed font-medium">
+                  Tell the Beetle what you want to build or change in plain English.
+                </p>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ delay: 0.2 }}
+                className="relative pl-12"
+              >
+                <div className="absolute left-0 top-0 text-[#A3B09E] font-serif italic text-4xl opacity-50" style={{ fontFamily: 'var(--font-playfair)' }}>3</div>
+                <h3 className="text-xl font-bold uppercase tracking-widest text-[#1A1A1A] mb-2 mt-1">Celebrate</h3>
+                <p className="text-[#5A5A5A] text-base leading-relaxed font-medium">
+                  Watch your ideas go live instantly. No code, no stress, just results.
+                </p>
+              </motion.div>
+            </div>
           </div>
 
           {/* Right Side: Phone Mockup */}
-          <div className="p-12 md:p-24 flex items-center justify-center relative overflow-hidden bg-[#F9F7F1]">
+          <div className="p-12 md:p-24 flex items-center justify-center relative overflow-hidden bg-[#FDFBF7]">
             <div className="absolute w-[120%] h-[120%] bg-[#F5F2EB] rounded-full blur-3xl opacity-50"></div>
             
             <motion.div 
@@ -337,8 +322,58 @@ export default function Home() {
           </div>
         </section>
 
+        {/* MANAGE YOUR FLEET (Plain English Success Logs) */}
+        <section id="manage-fleet" className="w-full py-32 px-6 border-b border-[#E5E0D8] bg-[#FDFBF7]">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tighter uppercase mb-6 text-[#1A1A1A]">
+                Manage Your <span className="font-serif italic font-normal text-[#2C3B2E] tracking-normal capitalize" style={{ fontFamily: 'var(--font-playfair)' }}>Fleet</span>
+              </h2>
+              <p className="text-[#5A5A5A] text-lg font-medium max-w-2xl mx-auto">
+                Control a massive digital footprint from a single Discord channel. From new blogs to full site redesigns, monitor all your successes in one place.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { name: "MyStyleSite.com", status: "New blog posted", color: "bg-[#57F287]" },
+                { name: "LocalCoffeeShop.io", status: "Landing page updated", color: "bg-[#57F287]" },
+                { name: "SaaS-Starter.dev", status: "Generating copy...", color: "bg-[#FEE75C]" },
+                { name: "AustinRealEstate.net", status: "SEO optimized", color: "bg-[#57F287]" },
+                { name: "TechBlogHQ.com", status: "Image gallery added", color: "bg-[#57F287]" },
+                { name: "ReactUIComponents.io", status: "New component published", color: "bg-[#57F287]" },
+                { name: "DailyJournal.me", status: "Connecting repo...", color: "bg-[#5865F2]" },
+                { name: "IndieHackerTools.com", status: "Pricing updated", color: "bg-[#57F287]" },
+                { name: "NextJSTemplates.org", status: "Theme switched to Dark", color: "bg-[#57F287]" },
+                { name: "StartupLanding.io", status: "New hero section live", color: "bg-[#57F287]" },
+                { name: "CyberSecurityNews.net", status: "Failed to fetch images", color: "bg-[#ED4245]" },
+                { name: "VibeBeetleDocs.com", status: "Documentation refreshed", color: "bg-[#57F287]" }
+              ].map((site, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.4, delay: i * 0.05 }}
+                  className="bg-white border border-[#E5E0D8] rounded-xl p-5 shadow-sm hover:shadow-md transition-all flex items-center justify-between group"
+                >
+                  <div className="flex flex-col w-full pr-4">
+                    <span className="font-bold text-[#1A1A1A] text-sm mb-1.5 group-hover:text-[#2C3B2E] transition-colors">{site.name}</span>
+                    <span className="text-[13px] text-[#5A5A5A] font-medium leading-tight">
+                      {site.status}
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-end shrink-0">
+                    <div className={`w-2.5 h-2.5 rounded-full ${site.color} shadow-sm`}></div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* PRICING SECTION */}
-        <section id="pricing" className="w-full flex flex-col items-center py-32 px-6 bg-[#FDFBF7]">
+        <section id="pricing" className="w-full flex flex-col items-center py-32 px-6 bg-[#F9F7F1]">
           <div className="text-center mb-20">
             <h2 className="text-5xl font-bold tracking-tighter uppercase mb-4 text-[#1A1A1A]">
               Unified <span className="font-serif italic font-normal text-[#2C3B2E] tracking-normal capitalize" style={{ fontFamily: 'var(--font-playfair)' }}>Access</span>
@@ -392,7 +427,7 @@ export default function Home() {
       </main>
 
       {/* FOOTER */}
-      <footer className="w-full border-t border-[#E5E0D8] bg-[#F9F7F1] py-12 px-8 flex justify-between items-center text-[#A1A1A1] text-xs font-bold uppercase tracking-widest z-20">
+      <footer className="w-full border-t border-[#E5E0D8] bg-[#FDFBF7] py-12 px-8 flex justify-between items-center text-[#A1A1A1] text-xs font-bold uppercase tracking-widest z-20">
         <p>VIBE BEETLE OS © 2026</p>
         <p>AUTONOMOUS WEB EMPIRES</p>
       </footer>
