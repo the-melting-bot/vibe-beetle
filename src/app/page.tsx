@@ -1,24 +1,39 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Terminal, Activity, Server, Cpu } from "lucide-react";
+import { Brain, Globe, Server, Activity } from "lucide-react";
 import { useEffect, useState } from "react";
 
-// Mock data for the fleet
-const fleetSites = [
-  { id: "S-01", name: "Sector Alpha", status: "ONLINE", load: "12%" },
-  { id: "S-02", name: "Sector Beta", status: "SYNCING", load: "45%" },
-  { id: "S-03", name: "Sector Gamma", status: "ONLINE", load: "22%" },
-  { id: "S-04", name: "Outpost Delta", status: "OFFLINE", load: "0%" },
-  { id: "S-05", name: "Hub Epsilon", status: "ONLINE", load: "89%" },
-  { id: "S-06", name: "Node Zeta", status: "ONLINE", load: "5%" },
-  { id: "S-07", name: "Relay Eta", status: "SYNCING", load: "33%" },
-  { id: "S-08", name: "Terminal Theta", status: "ONLINE", load: "67%" },
-  { id: "S-09", name: "Grid Iota", status: "ONLINE", load: "18%" },
-  { id: "S-10", name: "Nexus Kappa", status: "ONLINE", load: "42%" },
-  { id: "S-11", name: "Core Lambda", status: "ONLINE", load: "99%" },
-  { id: "S-12", name: "Vault Mu", status: "OFFLINE", load: "0%" },
-];
+// Geometric Scarab SVG Component
+const ScarabLogo = () => (
+  <motion.svg
+    width="160"
+    height="160"
+    viewBox="0 0 100 100"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="mx-auto mb-8 drop-shadow-[0_0_20px_rgba(0,243,255,0.8)]"
+    initial={{ opacity: 0, rotateY: -90 }}
+    animate={{ opacity: 1, rotateY: 0 }}
+    transition={{ duration: 1.5, ease: "easeOut" }}
+  >
+    <path
+      d="M50 10 L65 25 L80 20 L75 40 L90 50 L75 60 L80 80 L65 75 L50 90 L35 75 L20 80 L25 60 L10 50 L25 40 L20 20 L35 25 Z"
+      stroke="#00F3FF"
+      strokeWidth="2"
+      strokeLinejoin="round"
+      fill="rgba(0,243,255,0.1)"
+    />
+    <path
+      d="M50 10 L50 90 M35 25 L65 25 M25 40 L75 40 M25 60 L75 60 M35 75 L65 75"
+      stroke="#00F3FF"
+      strokeWidth="1"
+      strokeDasharray="4 4"
+    />
+    <circle cx="50" cy="50" r="15" fill="none" stroke="#00F3FF" strokeWidth="2" />
+    <circle cx="50" cy="50" r="5" fill="#00F3FF" />
+  </motion.svg>
+);
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -30,111 +45,116 @@ export default function Home() {
   if (!mounted) return null;
 
   return (
-    <main className="min-h-screen p-8 md:p-24 relative overflow-hidden flex flex-col items-center">
-      <div className="crt-overlay"></div>
-      <div className="crt-scanline"></div>
+    <main className="min-h-screen relative bg-[#121212] text-[#ededed] overflow-x-hidden flex flex-col justify-between">
+      {/* Background Grid Pattern */}
+      <div 
+        className="absolute inset-0 z-0 opacity-30 pointer-events-none"
+        style={{
+          backgroundSize: "40px 40px",
+          backgroundImage: `
+            linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)
+          `,
+          maskImage: "radial-gradient(ellipse at center, black 40%, transparent 80%)",
+          WebkitMaskImage: "radial-gradient(ellipse at center, black 40%, transparent 80%)"
+        }}
+      />
+      
+      {/* CRT Overlays */}
+      <div className="crt-overlay pointer-events-none z-50"></div>
+      <div className="crt-scanline pointer-events-none z-50"></div>
 
-      {/* Hero Section */}
-      <div className="flex flex-col items-center z-10 w-full max-w-5xl mt-20 mb-20 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex items-center gap-4 mb-4 text-accent"
+      {/* Main Content Area */}
+      <div className="flex-1 flex flex-col items-center justify-center p-6 md:p-12 z-10 w-full max-w-6xl mx-auto">
+        
+        {/* Hero Section */}
+        <div className="text-center w-full mt-10 md:mt-20">
+          <ScarabLogo />
+          
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase mb-6 drop-shadow-xl"
+          >
+            Autonomous <br className="hidden md:block"/>
+            <span className="text-[#00F3FF]">Web Empires</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="text-foreground/70 max-w-2xl mx-auto text-lg md:text-2xl font-mono leading-relaxed mb-12"
+          >
+            The headless engine for your digital portfolio. Manage multiple sites from a single Discord command.
+          </motion.p>
+          
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+          >
+            <a 
+              href="#" 
+              className="inline-block relative group"
+            >
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#00F3FF] to-blue-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+              <button className="relative px-8 py-4 bg-black border border-[#00F3FF]/50 text-[#00F3FF] font-bold text-xl uppercase tracking-widest rounded-lg transition-transform hover:scale-105 flex items-center gap-3">
+                <Activity className="w-6 h-6" />
+                Launch The Beetle
+              </button>
+            </a>
+          </motion.div>
+        </div>
+
+        {/* The 'Why' - Bento Box Cards */}
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mt-24 mb-16"
         >
-          <Activity className="w-8 h-8 animate-pulse" />
-          <span className="tracking-[0.3em] text-sm md:text-base font-mono uppercase font-bold">
-            Vibe Beetle HQ // Central Command
-          </span>
+          {/* Card 1 */}
+          <div className="bg-black/40 backdrop-blur-md border border-white/10 hover:border-[#00F3FF]/50 p-8 rounded-2xl transition-all duration-300 group">
+            <Brain className="w-10 h-10 text-[#00F3FF] mb-6 group-hover:scale-110 transition-transform" />
+            <h3 className="text-xl font-bold uppercase tracking-wider mb-3">The Brain</h3>
+            <p className="text-foreground/70 leading-relaxed font-mono text-sm">
+              AI Content Orchestration. Weekly blogs, SEO, and images—zero human touch.
+            </p>
+          </div>
+
+          {/* Card 2 */}
+          <div className="bg-black/40 backdrop-blur-md border border-white/10 hover:border-[#00F3FF]/50 p-8 rounded-2xl transition-all duration-300 group md:-translate-y-4">
+            <Globe className="w-10 h-10 text-[#00F3FF] mb-6 group-hover:scale-110 transition-transform" />
+            <h3 className="text-xl font-bold uppercase tracking-wider mb-3">The Fleet</h3>
+            <p className="text-foreground/70 leading-relaxed font-mono text-sm">
+              Multi-Site Sync. Push updates to a dozen domains simultaneously via Discord.
+            </p>
+          </div>
+
+          {/* Card 3 */}
+          <div className="bg-black/40 backdrop-blur-md border border-white/10 hover:border-[#00F3FF]/50 p-8 rounded-2xl transition-all duration-300 group">
+            <Server className="w-10 h-10 text-[#00F3FF] mb-6 group-hover:scale-110 transition-transform" />
+            <h3 className="text-xl font-bold uppercase tracking-wider mb-3">The Stack</h3>
+            <p className="text-foreground/70 leading-relaxed font-mono text-sm">
+              Industrial Infrastructure. Powered by Google Cloud & GitHub for 99.9% uptime.
+            </p>
+          </div>
         </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "circOut", delay: 0.2 }}
-          className="text-6xl md:text-8xl font-black tracking-tighter uppercase mb-6"
-        >
-          Deploy the <span className="text-accent drop-shadow-[0_0_15px_rgba(0,243,255,0.8)]">Scarab</span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="text-foreground/70 max-w-2xl mx-auto text-lg md:text-xl font-mono leading-relaxed"
-        >
-          System synchronization initialized. Monitoring distributed infrastructure across all sectors.
-        </motion.p>
       </div>
 
-      {/* The Feed - System Log */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.8 }}
-        className="w-full max-w-5xl z-10 relative"
-      >
-        <div className="flex items-center justify-between border-b border-accent/30 pb-4 mb-6">
-          <h2 className="text-2xl font-bold font-mono tracking-widest uppercase flex items-center gap-3">
-            <Terminal className="text-accent" /> Fleet Status Log
-          </h2>
-          <div className="text-accent/80 font-mono text-sm animate-pulse">
-            LIVE UPDATES
-          </div>
+      {/* Footer System Health Bar */}
+      <footer className="w-full border-t border-white/10 bg-black/60 backdrop-blur-md py-4 px-6 z-20 flex justify-between items-center relative">
+        <div className="font-mono text-xs text-foreground/50 flex gap-4">
+          <span>VIBE-BEETLE v1.4.0</span>
+          <span className="hidden sm:inline">KERNEL: ACTIVE</span>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {fleetSites.map((site, index) => (
-            <motion.div
-              key={site.id}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 1 + index * 0.1 }}
-              className="bg-black/40 border border-white/10 rounded-lg p-5 backdrop-blur-md hover:border-accent/50 hover:bg-accent/5 transition-all duration-300 group"
-            >
-              <div className="flex justify-between items-start mb-4">
-                <div>
-                  <span className="text-xs text-foreground/50 font-mono block mb-1">
-                    {site.id}
-                  </span>
-                  <h3 className="font-bold text-lg">{site.name}</h3>
-                </div>
-                <div
-                  className={`px-2 py-1 rounded text-xs font-mono font-bold ${
-                    site.status === "ONLINE"
-                      ? "bg-accent/20 text-accent border border-accent/30"
-                      : site.status === "SYNCING"
-                      ? "bg-yellow-500/20 text-yellow-400 border border-yellow-500/30"
-                      : "bg-red-500/20 text-red-400 border border-red-500/30"
-                  }`}
-                >
-                  {site.status}
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4 text-sm text-foreground/70 font-mono mt-4">
-                <div className="flex items-center gap-2">
-                  <Server className="w-4 h-4" /> Load: {site.load}
-                </div>
-                <div className="flex items-center gap-2">
-                  <Cpu className="w-4 h-4" />
-                  <span className="group-hover:text-accent transition-colors">
-                    Sys.OK
-                  </span>
-                </div>
-              </div>
-              
-              {/* Decorative progress bar */}
-              <div className="w-full h-1 bg-white/5 rounded-full mt-4 overflow-hidden">
-                <div 
-                  className={`h-full ${site.status === 'ONLINE' ? 'bg-accent' : site.status === 'SYNCING' ? 'bg-yellow-400' : 'bg-transparent'}`}
-                  style={{ width: site.load }}
-                ></div>
-              </div>
-            </motion.div>
-          ))}
+        <div className="flex items-center gap-2 font-mono text-sm font-bold border border-green-500/30 bg-green-500/10 px-3 py-1 rounded">
+          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+          <span className="text-green-400">Beetle-12: ONLINE</span>
         </div>
-      </motion.div>
+      </footer>
     </main>
   );
 }
