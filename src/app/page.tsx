@@ -85,7 +85,7 @@ export default function Home() {
           >
             <h1 className="text-5xl md:text-7xl lg:text-[7rem] font-bold tracking-tighter uppercase leading-[0.9] mb-8 text-[#1A1A1A]">
               THE BRIDGE FROM <br/>
-              <span className="font-serif italic font-normal text-[#2C3B2E] tracking-normal capitalize" style={{ fontFamily: 'var(--font-playfair)' }}>Chatting to Coding</span>
+              <span className="font-serif italic font-normal text-[#2C3B2E] tracking-normal capitalize" style={{ fontFamily: 'var(--font-playfair)' }}>Chatting to Deployment</span>
             </h1>
           </motion.div>
 
