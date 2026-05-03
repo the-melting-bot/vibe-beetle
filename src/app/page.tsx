@@ -123,18 +123,18 @@ export default function Home() {
             <div className="flex items-center justify-center w-full h-40">
               {/* Stacked Chat Apps Node */}
               <div className="relative z-20 flex flex-col items-center">
-                <div className="relative w-24 h-24">
-                  {/* Background app 1: Telegram */}
-                  <div className="absolute top-0 right-0 w-14 h-14 bg-white border border-[#E5E0D8] rounded-xl shadow-md flex items-center justify-center transform rotate-12 opacity-80">
-                    <TelegramIcon className="w-7 h-7 text-[#2AABEE]" />
-                  </div>
-                  {/* Background app 2: Slack */}
-                  <div className="absolute bottom-2 left-0 w-14 h-14 bg-white border border-[#E5E0D8] rounded-xl shadow-md flex items-center justify-center transform -rotate-6 opacity-90">
+                <div className="flex items-center justify-center h-24">
+                  {/* Background app 1: Slack */}
+                  <div className="w-14 h-14 bg-white border border-[#E5E0D8] rounded-xl shadow-md flex items-center justify-center transform -rotate-12 translate-x-4 translate-y-1 z-0">
                     <SlackIcon className="w-7 h-7 text-[#E01E5A]" />
                   </div>
                   {/* Foreground app: Discord */}
-                  <div className="absolute top-4 left-4 w-16 h-16 bg-white border-2 border-[#E5E0D8] rounded-2xl shadow-xl flex items-center justify-center z-10">
+                  <div className="w-16 h-16 bg-white border-2 border-[#E5E0D8] rounded-2xl shadow-xl flex items-center justify-center z-20 relative">
                     <DiscordIcon className="w-8 h-8 text-[#5865F2]" />
+                  </div>
+                  {/* Background app 2: Telegram */}
+                  <div className="w-14 h-14 bg-white border border-[#E5E0D8] rounded-xl shadow-md flex items-center justify-center transform rotate-12 -translate-x-4 translate-y-1 z-10">
+                    <TelegramIcon className="w-7 h-7 text-[#2AABEE]" />
                   </div>
                 </div>
                 <span className="text-[10px] font-bold uppercase tracking-widest mt-4 text-[#5A5A5A]">Your Chat</span>
@@ -159,7 +159,7 @@ export default function Home() {
                   />
                   <GeometricBeetle className="w-12 h-12 text-[#00F3FF] relative z-10 drop-shadow-[0_0_8px_rgba(0,243,255,0.8)]" />
                 </div>
-                <span className="text-[10px] font-bold uppercase tracking-widest mt-4 text-[#1A1A1A]">The Beetle</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest mt-4 text-[#1A1A1A]">Vibe Beetle</span>
               </div>
 
               {/* Connecting Line 2 */}
@@ -176,7 +176,7 @@ export default function Home() {
                 <div className="w-20 h-20 bg-white border border-[#E5E0D8] rounded-2xl shadow-xl flex items-center justify-center">
                   <GithubIcon className="w-10 h-10 text-[#1A1A1A]" />
                 </div>
-                <span className="text-[10px] font-bold uppercase tracking-widest mt-4 text-[#5A5A5A]">Live Website</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest mt-4 text-[#5A5A5A]">Commit. Deploy.</span>
               </div>
             </div>
             <p className="mt-8 text-sm font-medium text-[#A1A1A1] max-w-md">Vibe Beetle connects your favorite chat app to your favorite hosting provider. No laptop required.</p>
