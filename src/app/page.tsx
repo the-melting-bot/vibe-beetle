@@ -119,15 +119,15 @@ export default function Home() {
               <div className="relative z-20 flex flex-col items-center">
                 <div className="flex items-center justify-center h-24">
                   {/* Background app 1: Slack */}
-                  <div className="w-16 h-16 bg-white border border-[#E5E0D8] rounded-xl shadow-md flex items-center justify-center transform -rotate-12 translate-x-6 translate-y-1 z-0">
+                  <div className="w-16 h-16 bg-gradient-to-b from-[#FFFFFF] to-[#F5F2EB] border border-[#E5E0D8] rounded-2xl shadow-[0_8px_16px_rgba(0,0,0,0.08),0_2px_4px_rgba(0,0,0,0.04),inset_0_2px_0_rgba(255,255,255,1),inset_0_-2px_0_rgba(0,0,0,0.05)] flex items-center justify-center transform -rotate-12 translate-x-6 translate-y-1 z-0 relative">
                     <SlackIcon className="w-8 h-8 text-[#E01E5A]" />
                   </div>
                   {/* Foreground app: Discord */}
-                  <div className="w-20 h-20 bg-white border-2 border-[#E5E0D8] rounded-2xl shadow-xl flex items-center justify-center z-20 relative">
+                  <div className="w-20 h-20 bg-gradient-to-b from-[#FFFFFF] to-[#F5F2EB] border border-[#E5E0D8] rounded-2xl shadow-[0_12px_24px_rgba(0,0,0,0.1),0_4px_8px_rgba(0,0,0,0.05),inset_0_2px_0_rgba(255,255,255,1),inset_0_-2px_0_rgba(0,0,0,0.05)] flex items-center justify-center z-20 relative">
                     <DiscordIcon className="w-10 h-10 text-[#5865F2]" />
                   </div>
                   {/* Background app 2: Telegram */}
-                  <div className="w-16 h-16 bg-white border border-[#E5E0D8] rounded-xl shadow-md flex items-center justify-center transform rotate-12 -translate-x-6 translate-y-1 z-10">
+                  <div className="w-16 h-16 bg-gradient-to-b from-[#FFFFFF] to-[#F5F2EB] border border-[#E5E0D8] rounded-2xl shadow-[0_8px_16px_rgba(0,0,0,0.08),0_2px_4px_rgba(0,0,0,0.04),inset_0_2px_0_rgba(255,255,255,1),inset_0_-2px_0_rgba(0,0,0,0.05)] flex items-center justify-center transform rotate-12 -translate-x-6 translate-y-1 z-10 relative">
                     <TelegramIcon className="w-8 h-8 text-[#2AABEE]" />
                   </div>
                 </div>
@@ -145,8 +145,8 @@ export default function Home() {
 
               {/* Beetle Node (Center) */}
               <div className="relative z-20 flex flex-col items-center mx-4 md:mx-0">
-                <div className="w-20 h-20 bg-white border border-[#E5E0D8] rounded-2xl shadow-xl flex items-center justify-center relative overflow-hidden">
-                  <Image src="/beetle_logo.png" alt="Vibe Beetle Logo" width={56} height={56} className="object-contain mix-blend-multiply" />
+                <div className="w-24 h-24 relative flex items-center justify-center drop-shadow-xl">
+                  <Image src="/3d_cyber_beetle.png" alt="Vibe Beetle 3D Logo" fill className="object-contain rounded-[2rem] mix-blend-multiply" />
                 </div>
                 <span className="text-[10px] font-bold uppercase tracking-widest mt-4 text-[#1A1A1A]">Vibe Beetle</span>
               </div>
@@ -162,7 +162,7 @@ export default function Home() {
 
               {/* GitHub Node */}
               <div className="relative z-20 flex flex-col items-center">
-                <div className="w-20 h-20 bg-white border border-[#E5E0D8] rounded-2xl shadow-xl flex items-center justify-center">
+                <div className="w-20 h-20 bg-gradient-to-b from-[#FFFFFF] to-[#F5F2EB] border border-[#E5E0D8] rounded-2xl shadow-[0_12px_24px_rgba(0,0,0,0.1),0_4px_8px_rgba(0,0,0,0.05),inset_0_2px_0_rgba(255,255,255,1),inset_0_-2px_0_rgba(0,0,0,0.05)] flex items-center justify-center relative">
                   <GithubIcon className="w-10 h-10 text-[#1A1A1A]" />
                 </div>
                 <span className="text-[10px] font-bold uppercase tracking-widest mt-4 text-[#5A5A5A]">Commit. Deploy.</span>
