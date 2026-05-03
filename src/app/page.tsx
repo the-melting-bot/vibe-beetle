@@ -119,19 +119,19 @@ export default function Home() {
               <div className="relative z-20 flex flex-col items-center">
                 <div className="flex items-center justify-center h-24">
                   {/* Background app 1: Slack */}
-                  <div className="w-14 h-14 bg-white border border-[#E5E0D8] rounded-xl shadow-md flex items-center justify-center transform -rotate-12 translate-x-4 translate-y-1 z-0">
-                    <SlackIcon className="w-7 h-7 text-[#E01E5A]" />
+                  <div className="w-16 h-16 bg-white border border-[#E5E0D8] rounded-xl shadow-md flex items-center justify-center transform -rotate-12 translate-x-6 translate-y-1 z-0">
+                    <SlackIcon className="w-8 h-8 text-[#E01E5A]" />
                   </div>
                   {/* Foreground app: Discord */}
-                  <div className="w-16 h-16 bg-white border-2 border-[#E5E0D8] rounded-2xl shadow-xl flex items-center justify-center z-20 relative">
-                    <DiscordIcon className="w-8 h-8 text-[#5865F2]" />
+                  <div className="w-20 h-20 bg-white border-2 border-[#E5E0D8] rounded-2xl shadow-xl flex items-center justify-center z-20 relative">
+                    <DiscordIcon className="w-10 h-10 text-[#5865F2]" />
                   </div>
                   {/* Background app 2: Telegram */}
-                  <div className="w-14 h-14 bg-white border border-[#E5E0D8] rounded-xl shadow-md flex items-center justify-center transform rotate-12 -translate-x-4 translate-y-1 z-10">
-                    <TelegramIcon className="w-7 h-7 text-[#2AABEE]" />
+                  <div className="w-16 h-16 bg-white border border-[#E5E0D8] rounded-xl shadow-md flex items-center justify-center transform rotate-12 -translate-x-6 translate-y-1 z-10">
+                    <TelegramIcon className="w-8 h-8 text-[#2AABEE]" />
                   </div>
                 </div>
-                <span className="text-[10px] font-bold uppercase tracking-widest mt-4 text-[#5A5A5A]">Your Chat</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest mt-4 text-[#5A5A5A]">Pick Your Vibe</span>
               </div>
 
               {/* Connecting Line 1 */}
