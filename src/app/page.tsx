@@ -131,47 +131,49 @@ export default function Home() {
                 {/* Phone Notch */}
                 <div className="absolute top-0 inset-x-0 h-6 bg-[#E5E0D8] rounded-b-3xl w-32 mx-auto z-20"></div>
                 
-                {/* Discord UI (Light Theme implementation for crispness) */}
-                <div className="h-full w-full flex flex-col pt-8 bg-white">
-                  <div className="bg-[#F2F3F5] px-4 py-3 flex items-center justify-center border-b border-[#E3E5E8] shadow-sm">
-                    <span className="font-bold text-[#060607] text-[13px] tracking-wide flex items-center gap-1"><span className="text-[#80848E] font-medium text-lg">#</span> deployments</span>
+                {/* Discord UI (Authentic Dark Theme) */}
+                <div className="h-full w-full flex flex-col pt-8 bg-[#313338]">
+                  <div className="bg-[#2B2D31] px-4 py-3 flex items-center justify-center border-b border-[#1E1F22] shadow-sm">
+                    <span className="font-bold text-white text-[14px] tracking-wide flex items-center gap-1"><span className="text-[#80848E] font-medium text-lg">#</span> deployments</span>
                   </div>
                   
                   <div className="flex-1 p-4 flex flex-col gap-6 overflow-y-auto font-sans">
+                    {/* User Prompt */}
                     <div className="flex gap-3">
                       <div className="w-9 h-9 rounded-full bg-[#5865F2] shrink-0 mt-0.5 flex justify-center items-center shadow-sm">
                         <User className="w-5 h-5 text-white" />
                       </div>
                       <div>
                         <div className="flex items-baseline gap-2">
-                          <span className="font-semibold text-[#060607] text-[14px]">You</span>
-                          <span className="text-[11px] text-[#5C5E66] font-medium">11:42 AM</span>
+                          <span className="font-semibold text-[#F2F3F5] text-[15px]">You</span>
+                          <span className="text-[12px] text-[#949BA4] font-medium">11:42 AM</span>
                         </div>
-                        <div className="text-[#2E3338] text-[14px] mt-1.5 leading-snug">
-                          <span className="bg-[#EBEDEF] text-[#2E3338] px-1.5 py-0.5 rounded text-[13px] font-mono mr-1 border border-[#E3E5E8]">/beetle</span>
-                          <span className="text-[#2C3B2E] bg-[#2C3B2E]/10 px-1 rounded text-[13px] mr-1 font-medium">prompt:</span> Update my portfolio with a new project about GIS development.
+                        <div className="text-[#DBDEE1] text-[14px] mt-1 leading-snug">
+                          <span className="bg-[#41464D] text-[#DBDEE1] px-1.5 py-0.5 rounded text-[13px] font-mono mr-1">/beetle</span>
+                          <span className="text-[#00A8FC] bg-[#00A8FC]/10 px-1 rounded text-[13px] mr-1 font-medium">prompt:</span> Update my portfolio with a new project about GIS development.
                         </div>
                       </div>
                     </div>
 
+                    {/* Bot Response */}
                     <div className="flex gap-3">
-                      <div className="w-9 h-9 rounded-full bg-white border border-[#E5E0D8] flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
-                        <Bot className="w-5 h-5 text-[#2C3B2E]" />
+                      <div className="w-9 h-9 rounded-full bg-[#2B2D31] border border-[#1E1F22] flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                        <Bot className="w-5 h-5 text-[#DBDEE1]" />
                       </div>
                       <div>
                         <div className="flex items-baseline gap-2">
-                          <span className="font-semibold text-[#2C3B2E] text-[14px]">Vibe Beetle</span>
-                          <span className="bg-[#5865F2] text-white text-[9px] px-1.5 py-0.5 rounded font-bold uppercase tracking-wider">Bot</span>
+                          <span className="font-semibold text-[#F2F3F5] text-[15px]">Vibe Beetle</span>
+                          <span className="bg-[#5865F2] text-white text-[10px] px-1.5 py-0.5 rounded font-bold uppercase tracking-wider">Bot</span>
                         </div>
-                        <div className="bg-[#F8F9F9] border-l-[3px] border-[#2C3B2E] p-3.5 rounded mt-2 shadow-sm">
-                          <div className="flex items-center gap-1.5 font-bold text-[#2C3B2E] mb-1.5 text-xs">
+                        <div className="bg-[#2B2D31] border-l-[4px] border-[#57F287] p-3.5 rounded mt-2 shadow-sm">
+                          <div className="flex items-center gap-1.5 font-bold text-[#57F287] mb-1.5 text-xs">
                             <CheckCircle2 className="w-4 h-4" />
                             [SUCCESS] DEPLOYED
                           </div>
-                          <p className="text-[#4F5660] text-[13px] leading-relaxed mb-2">
+                          <p className="text-[#DBDEE1] text-[13px] leading-relaxed mb-2">
                             Content generated. GitHub updated.
                           </p>
-                          <a href="#" className="text-[#006CE7] hover:underline text-[13px] font-medium flex items-center gap-1">
+                          <a href="#" className="text-[#00A8FC] hover:underline text-[13px] font-medium flex items-center gap-1">
                             <Globe className="w-3.5 h-3.5" /> vibebeetle.com/blog/gis
                           </a>
                         </div>
@@ -179,8 +181,9 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  <div className="p-4 bg-[#F2F3F5] border-t border-[#E3E5E8]">
-                    <div className="bg-white border border-[#E3E5E8] rounded-full h-10 w-full px-4 flex items-center text-[#5C5E66] text-[14px] shadow-inner">
+                  {/* Chat Input */}
+                  <div className="p-4 bg-[#313338] border-t border-[#1E1F22]">
+                    <div className="bg-[#383A40] rounded-full h-10 w-full px-4 flex items-center text-[#949BA4] text-[14px] shadow-inner">
                       Message #deployments
                     </div>
                   </div>
