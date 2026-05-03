@@ -1,13 +1,25 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, Send, Smartphone, Terminal, Zap, Bot, User, Globe, CheckCircle2, Server, Lock, Code, Database, Layout } from "lucide-react";
+import { Check, Send, Smartphone, Terminal, Zap, Bot, User, Globe, CheckCircle2, Server, Lock, Code, Database, Layout, Loader2, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
 // Custom Icons
 const DiscordIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
     <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z" />
+  </svg>
+);
+
+const SlackIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.523-2.522v-2.522h2.523zM15.165 17.688a2.527 2.527 0 0 1-2.523-2.523 2.526 2.526 0 0 1 2.523-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/>
+  </svg>
+);
+
+const TelegramIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.18-.08-.05-.2-.02-.28 0-.12.03-1.99 1.25-5.61 3.67-.53.36-1.01.54-1.44.53-.47-.01-1.38-.27-2.06-.49-.83-.27-1.49-.42-1.43-.88.03-.24.38-.49 1.05-.75 4.12-1.78 6.86-2.95 8.24-3.52 3.92-1.63 4.73-1.9 5.25-1.91.11 0 .37.03.5.15.11.1.15.24.16.36.02.12.02.26 0 .38z"/>
   </svg>
 );
 
@@ -52,7 +64,7 @@ export default function Home() {
         <nav className="hidden md:flex gap-10 text-[11px] font-bold uppercase tracking-widest text-[#5A5A5A]">
           <a href="#the-bridge" className="hover:text-[#1A1A1A] transition-colors">The Bridge</a>
           <a href="#how-it-works" className="hover:text-[#1A1A1A] transition-colors">How it Works</a>
-          <a href="#manage-fleet" className="hover:text-[#1A1A1A] transition-colors">Manage Fleet</a>
+          <a href="#manage-fleet" className="hover:text-[#1A1A1A] transition-colors">Activity</a>
           <a href="#pricing" className="hover:text-[#1A1A1A] transition-colors">Pricing</a>
         </nav>
         <button className="text-[11px] font-bold tracking-widest uppercase bg-[#2C3B2E] text-[#FDFBF7] px-7 py-3 rounded-full hover:bg-[#1A241C] shadow-sm transition-all hover:shadow-md">
@@ -84,8 +96,11 @@ export default function Home() {
             className="max-w-6xl w-full relative z-10 mt-12"
           >
             <h1 className="text-5xl md:text-7xl lg:text-[7rem] font-bold tracking-tighter uppercase leading-[0.9] mb-8 text-[#1A1A1A]">
-              THE BRIDGE FROM <br/>
-              <span className="font-serif italic font-normal text-[#2C3B2E] tracking-normal capitalize" style={{ fontFamily: 'var(--font-playfair)' }}>Chatting To Coding</span>
+              THE BRIDGE FROM CHATTING <br/>
+              <span className="font-serif italic font-normal text-[#2C3B2E] tracking-normal capitalize" style={{ fontFamily: 'var(--font-playfair)' }}>
+                <span className="hidden md:inline mr-4 opacity-50"><ArrowRight className="inline w-16 h-16 mb-2" /></span>
+                Coding
+              </span>
             </h1>
           </motion.div>
 
@@ -93,64 +108,78 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, delay: 0.4 }}
-            className="text-lg md:text-xl text-[#5A5A5A] leading-relaxed mb-20 max-w-3xl font-medium tracking-wide relative z-10"
+            className="text-lg md:text-xl text-[#5A5A5A] leading-relaxed mb-16 max-w-3xl font-medium tracking-wide relative z-10"
           >
             Turn your Discord into a high-powered web studio. Build, update, and manage your websites entirely through chat—no matter where they are hosted or how many you own.
           </motion.p>
           
-          {/* LOGIC BRIDGE ANIMATION */}
+          {/* LOGIC BRIDGE ANIMATION (REHAULED) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
-            className="relative z-10 flex items-center justify-center w-full max-w-4xl mx-auto h-40"
+            className="relative z-10 flex flex-col items-center justify-center w-full max-w-4xl mx-auto"
           >
-            {/* Discord Node */}
-            <div className="relative z-20 flex flex-col items-center">
-              <div className="w-20 h-20 bg-white border border-[#E5E0D8] rounded-2xl shadow-xl flex items-center justify-center">
-                <DiscordIcon className="w-10 h-10 text-[#5865F2]" />
+            <div className="flex items-center justify-center w-full h-40">
+              {/* Stacked Chat Apps Node */}
+              <div className="relative z-20 flex flex-col items-center">
+                <div className="relative w-24 h-24">
+                  {/* Background app 1: Telegram */}
+                  <div className="absolute top-0 right-0 w-14 h-14 bg-white border border-[#E5E0D8] rounded-xl shadow-md flex items-center justify-center transform rotate-12 opacity-80">
+                    <TelegramIcon className="w-7 h-7 text-[#2AABEE]" />
+                  </div>
+                  {/* Background app 2: Slack */}
+                  <div className="absolute bottom-2 left-0 w-14 h-14 bg-white border border-[#E5E0D8] rounded-xl shadow-md flex items-center justify-center transform -rotate-6 opacity-90">
+                    <SlackIcon className="w-7 h-7 text-[#E01E5A]" />
+                  </div>
+                  {/* Foreground app: Discord */}
+                  <div className="absolute top-4 left-4 w-16 h-16 bg-white border-2 border-[#E5E0D8] rounded-2xl shadow-xl flex items-center justify-center z-10">
+                    <DiscordIcon className="w-8 h-8 text-[#5865F2]" />
+                  </div>
+                </div>
+                <span className="text-[10px] font-bold uppercase tracking-widest mt-4 text-[#5A5A5A]">Your Chat</span>
               </div>
-              <span className="text-[10px] font-bold uppercase tracking-widest mt-4 text-[#5A5A5A]">Input</span>
-            </div>
 
-            {/* Connecting Line 1 */}
-            <div className="flex-1 h-px bg-[#E5E0D8] relative mx-4 overflow-hidden hidden md:block">
-              <motion.div
-                className="absolute top-0 left-0 h-full w-1/3 bg-gradient-to-r from-transparent via-[#2C3B2E] to-transparent opacity-30"
-                animate={{ x: ["-100%", "300%"] }}
-                transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-              />
-            </div>
-
-            {/* Beetle Node (Center) */}
-            <div className="relative z-20 flex flex-col items-center mx-4 md:mx-0">
-              <div className="w-24 h-24 bg-[#2C3B2E] text-white rounded-full shadow-[0_0_40px_rgba(44,59,46,0.2)] flex items-center justify-center relative overflow-hidden border-4 border-white">
-                <motion.div 
-                  animate={{ rotate: 360 }}
-                  transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-                  className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==')]" 
+              {/* Connecting Line 1 */}
+              <div className="flex-1 h-px bg-[#E5E0D8] relative mx-4 overflow-hidden hidden md:block">
+                <motion.div
+                  className="absolute top-0 left-0 h-full w-1/3 bg-gradient-to-r from-transparent via-[#00F3FF] to-transparent opacity-60"
+                  animate={{ x: ["-100%", "300%"] }}
+                  transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
                 />
-                <GeometricBeetle className="w-10 h-10 relative z-10" />
               </div>
-              <span className="text-[10px] font-bold uppercase tracking-widest mt-4 text-[#1A1A1A]">Orchestration</span>
-            </div>
 
-            {/* Connecting Line 2 */}
-            <div className="flex-1 h-px bg-[#E5E0D8] relative mx-4 overflow-hidden hidden md:block">
-              <motion.div
-                className="absolute top-0 left-0 h-full w-1/3 bg-gradient-to-r from-transparent via-[#2C3B2E] to-transparent opacity-30"
-                animate={{ x: ["-100%", "300%"] }}
-                transition={{ repeat: Infinity, duration: 1.5, ease: "linear", delay: 0.75 }}
-              />
-            </div>
-
-            {/* GitHub Node */}
-            <div className="relative z-20 flex flex-col items-center">
-              <div className="w-20 h-20 bg-white border border-[#E5E0D8] rounded-2xl shadow-xl flex items-center justify-center">
-                <GithubIcon className="w-10 h-10 text-[#1A1A1A]" />
+              {/* Beetle Node (Center) - Neon Cyan Glow */}
+              <div className="relative z-20 flex flex-col items-center mx-4 md:mx-0">
+                <div className="w-24 h-24 bg-[#111] rounded-xl shadow-[0_0_30px_rgba(0,243,255,0.4)] border border-[#00F3FF]/30 flex items-center justify-center relative overflow-hidden">
+                  <motion.div 
+                    animate={{ opacity: [0.3, 0.8, 0.3] }}
+                    transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                    className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,243,255,0.2)_0%,transparent_70%)]" 
+                  />
+                  <GeometricBeetle className="w-12 h-12 text-[#00F3FF] relative z-10 drop-shadow-[0_0_8px_rgba(0,243,255,0.8)]" />
+                </div>
+                <span className="text-[10px] font-bold uppercase tracking-widest mt-4 text-[#1A1A1A]">The Beetle</span>
               </div>
-              <span className="text-[10px] font-bold uppercase tracking-widest mt-4 text-[#5A5A5A]">Deployment</span>
+
+              {/* Connecting Line 2 */}
+              <div className="flex-1 h-px bg-[#E5E0D8] relative mx-4 overflow-hidden hidden md:block">
+                <motion.div
+                  className="absolute top-0 left-0 h-full w-1/3 bg-gradient-to-r from-transparent via-[#00F3FF] to-transparent opacity-60"
+                  animate={{ x: ["-100%", "300%"] }}
+                  transition={{ repeat: Infinity, duration: 1.5, ease: "linear", delay: 0.75 }}
+                />
+              </div>
+
+              {/* GitHub Node */}
+              <div className="relative z-20 flex flex-col items-center">
+                <div className="w-20 h-20 bg-white border border-[#E5E0D8] rounded-2xl shadow-xl flex items-center justify-center">
+                  <GithubIcon className="w-10 h-10 text-[#1A1A1A]" />
+                </div>
+                <span className="text-[10px] font-bold uppercase tracking-widest mt-4 text-[#5A5A5A]">Live Website</span>
+              </div>
             </div>
+            <p className="mt-8 text-sm font-medium text-[#A1A1A1] max-w-md">Vibe Beetle connects your favorite chat app to your favorite hosting provider. No laptop required.</p>
           </motion.div>
         </section>
 
@@ -322,53 +351,83 @@ export default function Home() {
           </div>
         </section>
 
-        {/* MANAGE YOUR FLEET (Plain English Success Logs) */}
+        {/* SINGLE LARGE FLEET ACTIVITY CARD */}
         <section id="manage-fleet" className="w-full py-32 px-6 border-b border-[#E5E0D8] bg-[#FDFBF7]">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-4xl mx-auto flex flex-col items-center">
+            
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold tracking-tighter uppercase mb-6 text-[#1A1A1A]">
-                Manage Your <span className="font-serif italic font-normal text-[#2C3B2E] tracking-normal capitalize" style={{ fontFamily: 'var(--font-playfair)' }}>Fleet</span>
+                Actionable <span className="font-serif italic font-normal text-[#2C3B2E] tracking-normal capitalize" style={{ fontFamily: 'var(--font-playfair)' }}>Visibility</span>
               </h2>
               <p className="text-[#5A5A5A] text-lg font-medium max-w-2xl mx-auto">
-                Control a massive digital footprint from a single Discord channel. From new blogs to full site redesigns, monitor all your successes in one place.
+                No complex dashboards. See exactly what the engine is building for your fleet in real-time.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                { name: "MyStyleSite.com", status: "New blog posted", color: "bg-[#57F287]" },
-                { name: "LocalCoffeeShop.io", status: "Landing page updated", color: "bg-[#57F287]" },
-                { name: "SaaS-Starter.dev", status: "Generating copy...", color: "bg-[#FEE75C]" },
-                { name: "AustinRealEstate.net", status: "SEO optimized", color: "bg-[#57F287]" },
-                { name: "TechBlogHQ.com", status: "Image gallery added", color: "bg-[#57F287]" },
-                { name: "ReactUIComponents.io", status: "New component published", color: "bg-[#57F287]" },
-                { name: "DailyJournal.me", status: "Connecting repo...", color: "bg-[#5865F2]" },
-                { name: "IndieHackerTools.com", status: "Pricing updated", color: "bg-[#57F287]" },
-                { name: "NextJSTemplates.org", status: "Theme switched to Dark", color: "bg-[#57F287]" },
-                { name: "StartupLanding.io", status: "New hero section live", color: "bg-[#57F287]" },
-                { name: "CyberSecurityNews.net", status: "Failed to fetch images", color: "bg-[#ED4245]" },
-                { name: "VibeBeetleDocs.com", status: "Documentation refreshed", color: "bg-[#57F287]" }
-              ].map((site, i) => (
-                <motion.div 
-                  key={i}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.4, delay: i * 0.05 }}
-                  className="bg-white border border-[#E5E0D8] rounded-xl p-5 shadow-sm hover:shadow-md transition-all flex items-center justify-between group"
-                >
-                  <div className="flex flex-col w-full pr-4">
-                    <span className="font-bold text-[#1A1A1A] text-sm mb-1.5 group-hover:text-[#2C3B2E] transition-colors">{site.name}</span>
-                    <span className="text-[13px] text-[#5A5A5A] font-medium leading-tight">
-                      {site.status}
-                    </span>
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6 }}
+              className="w-full bg-white border border-[#E5E0D8] rounded-2xl shadow-xl overflow-hidden"
+            >
+              {/* Card Header */}
+              <div className="bg-[#F9F7F1] border-b border-[#E5E0D8] px-8 py-4 flex justify-between items-center">
+                <div className="flex items-center gap-3">
+                  <div className="relative">
+                    <div className="w-3 h-3 bg-[#00F3FF] rounded-full"></div>
+                    <div className="absolute inset-0 bg-[#00F3FF] rounded-full animate-ping opacity-75"></div>
                   </div>
-                  <div className="flex flex-col items-end shrink-0">
-                    <div className={`w-2.5 h-2.5 rounded-full ${site.color} shadow-sm`}></div>
+                  <span className="font-bold text-[#1A1A1A] uppercase tracking-widest text-xs">Live Operation</span>
+                </div>
+                <span className="text-xs font-mono text-[#A1A1A1]">ID: VB-8942</span>
+              </div>
+              
+              {/* Card Body */}
+              <div className="p-8 md:p-12">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
+                  <div>
+                    <h3 className="text-2xl font-bold text-[#1A1A1A] mb-2">Generating 3 NFL Blogs</h3>
+                    <div className="flex items-center gap-2 text-[#5A5A5A] font-medium">
+                      <Globe className="w-4 h-4 text-[#A1A1A1]" />
+                      <span className="font-mono text-sm">AustinRealEstate.net</span>
+                    </div>
                   </div>
-                </motion.div>
-              ))}
-            </div>
+                  <div className="text-right">
+                    <span className="block text-4xl font-bold tracking-tighter text-[#2C3B2E] mb-1">85%</span>
+                    <span className="text-xs font-bold uppercase tracking-widest text-[#A1A1A1]">Complete</span>
+                  </div>
+                </div>
+
+                {/* Progress Bar */}
+                <div className="w-full h-3 bg-[#F5F2EB] rounded-full overflow-hidden mb-6 border border-[#E5E0D8]">
+                  <motion.div 
+                    initial={{ width: "0%" }}
+                    whileInView={{ width: "85%" }}
+                    transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
+                    className="h-full bg-gradient-to-r from-[#2C3B2E] to-[#00F3FF] rounded-full relative"
+                  >
+                    <div className="absolute top-0 right-0 bottom-0 w-20 bg-gradient-to-r from-transparent to-white opacity-30"></div>
+                  </motion.div>
+                </div>
+
+                {/* Status Log */}
+                <div className="flex flex-col gap-3 font-mono text-xs text-[#5A5A5A] bg-[#F9F7F1] p-6 rounded-lg border border-[#E5E0D8]">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="w-4 h-4 text-[#57F287]" />
+                    <span>[SUCCESS] Connected to target repository...</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="w-4 h-4 text-[#57F287]" />
+                    <span>[SUCCESS] AI generated highly-optimized content...</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Loader2 className="w-4 h-4 text-[#00F3FF] animate-spin" />
+                    <span className="text-[#1A1A1A] font-bold">Pushing static files to Vercel production edge...</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </section>
 
