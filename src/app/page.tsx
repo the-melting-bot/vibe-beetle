@@ -196,7 +196,7 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.6 }}
             className="relative z-10 flex flex-col items-center justify-center w-full max-w-4xl mx-auto"
           >
-            <div className="flex items-center justify-center w-full h-40">
+            <div className="flex flex-col md:flex-row items-center justify-center w-full md:h-40 gap-8 md:gap-0">
               {/* Stacked Chat Apps Node */}
               <div className="relative z-20 flex flex-col items-center">
                 <div className="flex items-center justify-center h-24">
@@ -217,9 +217,14 @@ export default function Home() {
               </div>
 
               {/* Connecting Line 1 */}
-              <div className="flex-1 h-px bg-[#E5E0D8] relative mx-4 overflow-hidden hidden md:block">
+              <div className="w-px h-12 md:h-px md:w-auto md:flex-1 bg-[#E5E0D8] relative md:mx-4 overflow-hidden">
                 <motion.div
-                  className="absolute top-0 left-0 h-full w-1/3 bg-gradient-to-r from-transparent via-[#00F3FF] to-transparent opacity-60"
+                  className="md:hidden absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-transparent via-[#00F3FF] to-transparent opacity-60"
+                  animate={{ y: ["-100%", "300%"], x: [0, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
+                />
+                <motion.div
+                  className="hidden md:block absolute top-0 left-0 h-full w-1/3 bg-gradient-to-r from-transparent via-[#00F3FF] to-transparent opacity-60"
                   animate={{ x: ["-100%", "300%"] }}
                   transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
                 />
@@ -234,9 +239,14 @@ export default function Home() {
               </div>
 
               {/* Connecting Line 2 */}
-              <div className="flex-1 h-px bg-[#E5E0D8] relative mx-4 overflow-hidden hidden md:block">
+              <div className="w-px h-12 md:h-px md:w-auto md:flex-1 bg-[#E5E0D8] relative md:mx-4 overflow-hidden">
                 <motion.div
-                  className="absolute top-0 left-0 h-full w-1/3 bg-gradient-to-r from-transparent via-[#00F3FF] to-transparent opacity-60"
+                  className="md:hidden absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-transparent via-[#00F3FF] to-transparent opacity-60"
+                  animate={{ y: ["-100%", "300%"] }}
+                  transition={{ repeat: Infinity, duration: 1.5, ease: "linear", delay: 0.75 }}
+                />
+                <motion.div
+                  className="hidden md:block absolute top-0 left-0 h-full w-1/3 bg-gradient-to-r from-transparent via-[#00F3FF] to-transparent opacity-60"
                   animate={{ x: ["-100%", "300%"] }}
                   transition={{ repeat: Infinity, duration: 1.5, ease: "linear", delay: 0.75 }}
                 />
