@@ -89,24 +89,21 @@ export default function Home() {
       </div>
 
       {/* HEADER */}
-      <header className="relative z-20 w-full px-6 md:px-10 py-3 md:py-4 flex justify-between items-center border-b border-[#E5E0D8] bg-[#FDFBF7]">
+      <header className="relative z-20 w-full px-6 md:px-10 py-3 flex justify-between items-center border-b border-[#E5E0D8] bg-[#FDFBF7]">
         <div className="flex items-center">
-          <div className="w-48 sm:w-56 md:w-64 h-14 md:h-16 relative flex items-center justify-start transition-transform hover:scale-[1.02] duration-500 drop-shadow-md hover:drop-shadow-lg">
-            <Image src="/crawling_beetle_logo_trans.png" alt="Vibe Beetle Logo" fill className="object-contain object-left" />
+          <div className="w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 relative flex items-center justify-start transition-transform hover:scale-105 duration-500 drop-shadow-lg">
+            <Image src="/vblogo3.png" alt="Vibe Beetle Emblem" fill className="object-contain object-left" />
           </div>
         </div>
         
         <div className="flex items-center gap-8 lg:gap-10">
-          <nav className="hidden md:flex gap-8 lg:gap-10 text-[11px] font-bold uppercase tracking-widest text-[#5A5A5A]">
-            <a href="#the-bridge" className="hover:text-[#1A1A1A] transition-colors">The Bridge</a>
-            <a href="#how-it-works" className="hover:text-[#1A1A1A] transition-colors">How it Works</a>
-            <a href="#manage-fleet" className="hover:text-[#1A1A1A] transition-colors">Activity</a>
-            <a href="#pricing" className="hover:text-[#1A1A1A] transition-colors">Pricing</a>
+          <nav className="hidden md:flex gap-6 lg:gap-8 text-[11px] font-bold uppercase tracking-widest text-[#00A3AA] drop-shadow-[0_0_4px_rgba(0,163,170,0.3)]">
+            <a href="#deployments" className="hover:text-[#00E5FF] hover:drop-shadow-[0_0_8px_rgba(0,229,255,0.7)] transition-all duration-300">Deployments</a>
+            <a href="#fleet" className="hover:text-[#00E5FF] hover:drop-shadow-[0_0_8px_rgba(0,229,255,0.7)] transition-all duration-300">Fleet Overview</a>
+            <a href="#docs" className="hover:text-[#00E5FF] hover:drop-shadow-[0_0_8px_rgba(0,229,255,0.7)] transition-all duration-300">Docs</a>
+            <a href="#projects" className="hover:text-[#00E5FF] hover:drop-shadow-[0_0_8px_rgba(0,229,255,0.7)] transition-all duration-300">Projects</a>
+            <a href="#account" className="hover:text-[#00E5FF] hover:drop-shadow-[0_0_8px_rgba(0,229,255,0.7)] transition-all duration-300">Account</a>
           </nav>
-          
-          <button className="hidden lg:block text-[11px] font-bold tracking-widest uppercase bg-[#2C3B2E] text-[#FDFBF7] px-7 py-3 rounded-full hover:bg-[#1A241C] shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
-            Launch App
-          </button>
         </div>
       </header>
 
