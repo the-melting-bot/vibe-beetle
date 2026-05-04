@@ -89,22 +89,28 @@ export default function Home() {
       </div>
 
       {/* HEADER */}
-      <header className="relative z-20 w-full px-8 py-5 flex justify-between items-center border-b border-[#E5E0D8] bg-[#FDFBF7]">
-        <div className="flex items-center gap-8">
-          <div className="flex items-center gap-4 font-bold tracking-widest text-[15px] uppercase text-[#1A1A1A]">
-            <Image src="/beetle_logo.png" alt="Vibe Beetle Logo" width={48} height={48} className="object-contain brightness-0 opacity-90" />
-            VIBE BEETLE
+      <header className="relative z-20 w-full px-6 md:px-10 py-5 flex justify-between items-center border-b border-[#E5E0D8] bg-[#FDFBF7]">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 relative flex items-center justify-center mix-blend-multiply drop-shadow-sm">
+            <Image src="/3d_cyber_beetle.png" alt="Vibe Beetle Logo" fill className="object-contain" />
           </div>
+          <span className="font-bold tracking-widest text-[15px] uppercase text-[#1A1A1A] mt-0.5">
+            VIBE BEETLE
+          </span>
+        </div>
+        
+        <div className="flex items-center gap-8 lg:gap-10">
+          <nav className="hidden md:flex gap-8 lg:gap-10 text-[11px] font-bold uppercase tracking-widest text-[#5A5A5A]">
+            <a href="#the-bridge" className="hover:text-[#1A1A1A] transition-colors">The Bridge</a>
+            <a href="#how-it-works" className="hover:text-[#1A1A1A] transition-colors">How it Works</a>
+            <a href="#manage-fleet" className="hover:text-[#1A1A1A] transition-colors">Activity</a>
+            <a href="#pricing" className="hover:text-[#1A1A1A] transition-colors">Pricing</a>
+          </nav>
+          
           <button className="hidden lg:block text-[11px] font-bold tracking-widest uppercase bg-[#2C3B2E] text-[#FDFBF7] px-7 py-3 rounded-full hover:bg-[#1A241C] shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
             Launch App
           </button>
         </div>
-        <nav className="hidden md:flex gap-8 lg:gap-10 text-[11px] font-bold uppercase tracking-widest text-[#5A5A5A]">
-          <a href="#the-bridge" className="hover:text-[#1A1A1A] transition-colors">The Bridge</a>
-          <a href="#how-it-works" className="hover:text-[#1A1A1A] transition-colors">How it Works</a>
-          <a href="#manage-fleet" className="hover:text-[#1A1A1A] transition-colors">Activity</a>
-          <a href="#pricing" className="hover:text-[#1A1A1A] transition-colors">Pricing</a>
-        </nav>
       </header>
 
       <main className="relative z-10 w-full flex flex-col flex-1">
