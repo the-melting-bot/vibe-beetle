@@ -92,8 +92,8 @@ export default function Home() {
       {/* HEADER */}
       <header className="sticky top-0 z-50 w-full px-4 md:px-10 py-2 flex justify-between items-center bg-[#FDFBF7]/85 backdrop-blur-[10px] border-b border-[#E5E0D8]/60 pt-[max(0.5rem,env(safe-area-inset-top))] transition-colors duration-300">
         <div className="flex items-center gap-3">
-          <div className="relative w-[180px] h-[70px] md:w-[280px] md:h-[100px] flex items-center transition-transform hover:scale-105 active:scale-95 duration-500 z-10 drop-shadow-xl">
-            <Image src="/vibe_beetle_wordmark.png" alt="Vibe Beetle Full Logo" fill className="object-contain object-left" priority />
+          <div className="relative w-[240px] h-[70px] md:w-[380px] md:h-[100px] flex items-center transition-transform hover:scale-105 active:scale-95 duration-500 z-10 drop-shadow-xl">
+            <Image src="/vibe_beetle_wordmark_spaced.png" alt="Vibe Beetle Full Logo" fill className="object-contain object-left" priority />
           </div>
         </div>
         
