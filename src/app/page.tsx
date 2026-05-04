@@ -589,10 +589,18 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="w-full border-t border-[#E5E0D8] bg-[#FDFBF7] py-12 px-8 flex justify-between items-center z-20">
-        <div className="flex items-center gap-2 bg-white border border-[#E5E0D8] shadow-[0_2px_0_0_#E5E0D8] rounded-full px-4 py-2">
-          <Bot className="w-4 h-4 text-[#2C3B2E]" />
-          <span className="text-[#2C3B2E] font-bold text-sm tracking-wide">Built by The Melting Bot</span>
-        </div>
+        <a 
+          href="https://themeltingbot.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center gap-2.5 bg-white border border-[#E5E0D8] shadow-[0_2px_0_0_#E5E0D8] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-[#D1C9B8] rounded-full pl-2 pr-4 py-1.5 hover:-translate-y-0.5 transition-all duration-300"
+        >
+          <div className="w-7 h-7 rounded-full bg-[#F5F2EB] border border-[#E5E0D8] flex items-center justify-center group-hover:bg-[#2C3B2E] group-hover:border-[#2C3B2E] transition-colors duration-300 relative overflow-hidden">
+             <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+             <Bot className="w-3.5 h-3.5 text-[#2C3B2E] group-hover:text-[#00F3FF] transition-colors duration-300 relative z-10" />
+          </div>
+          <span className="text-[#2C3B2E] font-bold text-sm tracking-wide group-hover:text-[#1A1A1A] transition-colors">Built by The Melting Bot</span>
+        </a>
         <p className="text-[#A1A1A1] text-xs font-bold uppercase tracking-widest">AUTONOMOUS WEB EMPIRES</p>
       </footer>
     </div>
