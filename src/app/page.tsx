@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { Check, Send, Smartphone, Terminal, Zap, Bot, User, Globe, CheckCircle2, Server, Lock, Code, Database, Layout, Loader2, ArrowRight, Menu, MessageSquarePlus, Search, Plus, Gift, Smile, Mic, Grid, MessageCircle, Bell, Wifi, BatteryFull, SignalHigh } from "lucide-react";
+import { Check, Send, Smartphone, Terminal, Zap, Bot, User, Globe, CheckCircle2, Server, Lock, Code, Database, Layout, Loader2, ArrowRight, Menu, MessageSquarePlus, Search, Plus, Gift, Smile, Mic, Grid, MessageCircle, Bell, Wifi, BatteryFull, SignalHigh, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 // Custom Icons
@@ -36,6 +36,7 @@ export default function Home() {
   const [mounted, setMounted] = useState(false);
   const [progress, setProgress] = useState(0);
   const [isDeployed, setIsDeployed] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -83,29 +84,67 @@ export default function Home() {
     <div className="min-h-screen bg-[#FDFBF7] text-[#1A1A1A] font-sans selection:bg-[#E2D9C8] selection:text-[#1A1A1A] overflow-x-hidden relative flex flex-col">
       
       {/* BACKGROUND EFFECTS */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
+      <div className="fixed top-0 left-0 w-screen h-[100dvh] z-0 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,transparent_0%,#F5F2EB_100%)] opacity-80" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.08%22/%3E%3C/svg%3E')] mix-blend-multiply pointer-events-none" />
       </div>
 
       {/* HEADER */}
-      <header className="relative z-20 w-full px-6 md:px-10 py-5 flex justify-between items-center border-b border-[#E5E0D8] bg-[#FDFBF7] h-20 md:h-24">
+      <header className="relative z-50 w-full px-6 md:px-10 py-4 flex justify-between items-center border-b border-[#E5E0D8] bg-[#FDFBF7] pt-[max(1rem,env(safe-area-inset-top))]">
         <div className="flex items-center">
-          <div className="relative w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 drop-shadow-xl transition-transform hover:scale-105 duration-500">
+          {/* Logo scales to 28px on mobile, larger on desktop */}
+          <div className="relative w-[28px] h-[28px] md:w-24 md:h-24 drop-shadow-xl transition-transform hover:scale-105 active:scale-95 duration-500">
             <Image src="/vblogo_final.png" alt="Vibe Beetle Emblem" fill className="object-contain object-left" />
           </div>
         </div>
         
-        <div className="flex items-center gap-8 lg:gap-10">
+        <div className="flex items-center gap-6 lg:gap-10">
           <nav className="hidden md:flex gap-6 lg:gap-8 text-[11px] font-bold uppercase tracking-widest text-[#00A3AA] drop-shadow-[0_0_4px_rgba(0,163,170,0.3)]">
-            <a href="#deployments" className="hover:text-[#00E5FF] hover:drop-shadow-[0_0_8px_rgba(0,229,255,0.7)] transition-all duration-300">Deployments</a>
-            <a href="#fleet" className="hover:text-[#00E5FF] hover:drop-shadow-[0_0_8px_rgba(0,229,255,0.7)] transition-all duration-300">Fleet Overview</a>
-            <a href="#docs" className="hover:text-[#00E5FF] hover:drop-shadow-[0_0_8px_rgba(0,229,255,0.7)] transition-all duration-300">Docs</a>
-            <a href="#projects" className="hover:text-[#00E5FF] hover:drop-shadow-[0_0_8px_rgba(0,229,255,0.7)] transition-all duration-300">Projects</a>
-            <a href="#account" className="hover:text-[#00E5FF] hover:drop-shadow-[0_0_8px_rgba(0,229,255,0.7)] transition-all duration-300">Account</a>
+            <a href="#the-bridge" className="hover:text-[#00E5FF] active:text-[#00E5FF] hover:drop-shadow-[0_0_8px_rgba(0,229,255,0.7)] transition-all duration-300">The Bridge</a>
+            <a href="#how-it-works" className="hover:text-[#00E5FF] active:text-[#00E5FF] hover:drop-shadow-[0_0_8px_rgba(0,229,255,0.7)] transition-all duration-300">How It Works</a>
+            <a href="#manage-fleet" className="hover:text-[#00E5FF] active:text-[#00E5FF] hover:drop-shadow-[0_0_8px_rgba(0,229,255,0.7)] transition-all duration-300">Activity</a>
+            <a href="#pricing" className="hover:text-[#00E5FF] active:text-[#00E5FF] hover:drop-shadow-[0_0_8px_rgba(0,229,255,0.7)] transition-all duration-300">Pricing</a>
           </nav>
+          
+          <button className="hidden md:flex items-center justify-center min-h-[44px] px-6 bg-[#00A3AA] hover:bg-[#00E5FF] active:bg-[#00D0E6] text-white font-bold uppercase tracking-widest text-xs rounded-sm transition-all duration-300 shadow-[0_0_15px_rgba(0,163,170,0.4)] hover:shadow-[0_0_25px_rgba(0,229,255,0.6)]">
+            Launch App
+          </button>
+
+          {/* MOBILE HAMBURGER MENU */}
+          <button 
+            className="md:hidden relative z-50 p-2 text-[#00A3AA] active:text-[#00E5FF] transition-colors min-h-[44px] flex flex-col justify-center gap-1.5"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <motion.div animate={isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }} className="w-6 h-0.5 bg-current rounded-full shadow-[0_0_8px_currentColor]" />
+            <motion.div animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }} className="w-6 h-0.5 bg-current rounded-full shadow-[0_0_8px_currentColor]" />
+            <motion.div animate={isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }} className="w-6 h-0.5 bg-current rounded-full shadow-[0_0_8px_currentColor]" />
+          </button>
         </div>
       </header>
+
+      {/* MOBILE NAV OVERLAY */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-40 bg-[#000000]/90 backdrop-blur-md flex flex-col items-center justify-center pt-[env(safe-area-inset-top)]"
+          >
+            <nav className="flex flex-col items-center gap-10 text-xl font-bold uppercase tracking-[0.2em] text-[#00E5FF] drop-shadow-[0_0_10px_rgba(0,229,255,0.5)] w-full px-6">
+              <a href="#the-bridge" onClick={() => setIsMenuOpen(false)} className="hover:text-white active:text-white transition-colors py-2">The Bridge</a>
+              <a href="#how-it-works" onClick={() => setIsMenuOpen(false)} className="hover:text-white active:text-white transition-colors py-2">How It Works</a>
+              <a href="#manage-fleet" onClick={() => setIsMenuOpen(false)} className="hover:text-white active:text-white transition-colors py-2">Activity</a>
+              <a href="#pricing" onClick={() => setIsMenuOpen(false)} className="hover:text-white active:text-white transition-colors py-2">Pricing</a>
+              
+              <button className="mt-8 w-full max-w-[280px] min-h-[44px] flex items-center justify-center bg-[#00A3AA] active:bg-[#00D0E6] text-white font-bold uppercase tracking-widest text-sm rounded-sm transition-all shadow-[0_0_20px_rgba(0,163,170,0.6)]">
+                Launch App
+              </button>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <main className="relative z-10 w-full flex flex-col flex-1">
         
@@ -130,10 +169,10 @@ export default function Home() {
             transition={{ duration: 1.2, ease: "easeOut" }}
             className="max-w-6xl w-full relative z-10 mt-12"
           >
-            <h1 className="text-5xl md:text-7xl lg:text-[7rem] font-bold tracking-tighter uppercase leading-[0.9] mb-8 text-[#1A1A1A]">
+            <h1 className="text-[clamp(2.5rem,8vw,7rem)] font-bold tracking-tighter uppercase leading-[0.9] mb-8 text-[#1A1A1A]">
               THE BRIDGE FROM CHATTING <br/>
               <span className="font-serif italic font-normal text-[#2C3B2E] tracking-normal capitalize" style={{ fontFamily: 'var(--font-playfair)' }}>
-                <span className="hidden md:inline mr-4 opacity-50"><ArrowRight className="inline w-16 h-16 mb-2" /></span>
+                <span className="hidden md:inline mr-4 opacity-50"><ArrowRight className="inline w-[clamp(2rem,4vw,4rem)] h-[clamp(2rem,4vw,4rem)] mb-2 md:mb-4" /></span>
                 Coding
               </span>
             </h1>
@@ -582,7 +621,7 @@ export default function Home() {
               ))}
             </ul>
 
-            <button className="w-full mt-12 bg-[#2C3B2E] hover:bg-[#1A241C] text-[#FDFBF7] py-5 rounded-md font-bold uppercase tracking-widest text-sm transition-all shadow-md hover:shadow-lg">
+            <button className="w-full mt-12 bg-[#2C3B2E] hover:bg-[#1A241C] active:bg-[#000000] text-[#FDFBF7] min-h-[44px] py-5 rounded-md font-bold uppercase tracking-widest text-sm transition-all shadow-md hover:shadow-lg active:scale-[0.98]">
               Initialize Plan
             </button>
           </motion.div>
