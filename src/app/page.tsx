@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Check, Send, Smartphone, Terminal, Zap, Bot, User, Globe, CheckCircle2, Server, Lock, Code, Database, Layout, Loader2, ArrowRight } from "lucide-react";
+import { Check, Send, Smartphone, Terminal, Zap, Bot, User, Globe, CheckCircle2, Server, Lock, Code, Database, Layout, Loader2, ArrowRight, Menu, MessageSquarePlus, Search, Plus, Gift, Smile, Mic, Grid, MessageCircle, Bell, Wifi, BatteryFull, SignalHigh } from "lucide-react";
 import { useEffect, useState } from "react";
 
 // Custom Icons
@@ -310,68 +310,134 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="w-full max-w-[320px] relative z-10"
+              className="w-full max-w-[340px] relative z-10"
             >
-              <div className="w-full rounded-[3rem] border-[10px] border-[#E5E0D8] bg-[#FDFBF7] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.08)] relative aspect-[9/19]">
-                {/* Phone Notch */}
-                <div className="absolute top-0 inset-x-0 h-6 bg-[#E5E0D8] rounded-b-3xl w-32 mx-auto z-20"></div>
-                
-                {/* Discord UI (Authentic Dark Theme) */}
-                <div className="h-full w-full flex flex-col pt-8 bg-[#313338]">
-                  <div className="bg-[#2B2D31] px-4 py-3 flex items-center justify-center border-b border-[#1E1F22] shadow-sm">
-                    <span className="font-bold text-white text-[14px] tracking-wide flex items-center gap-1"><span className="text-[#80848E] font-medium text-lg">#</span> deployments</span>
+              {/* Phone Outer Bezel */}
+              <div className="w-full rounded-[3.5rem] border-4 border-[#D8D8D8] bg-[#1A1A1A] shadow-[0_20px_60px_rgba(0,0,0,0.15)] relative aspect-[9/19.5] p-1.5 flex flex-col">
+                {/* Phone Inner Screen */}
+                <div className="w-full h-full rounded-[3rem] bg-[#313338] overflow-hidden relative flex flex-col">
+                  
+                  {/* Phone Notch */}
+                  <div className="absolute top-0 inset-x-0 h-7 bg-[#1A1A1A] rounded-b-3xl w-40 mx-auto z-30"></div>
+                  
+                  {/* Status Bar */}
+                  <div className="w-full h-12 flex justify-between items-center px-6 text-white text-[12px] font-semibold pt-1 z-20 relative bg-[#313338]">
+                    <div className="w-1/3 text-left">12:00 PM</div>
+                    <div className="w-1/3 flex justify-end items-center gap-1.5">
+                      <SignalHigh className="w-4 h-4" />
+                      <Wifi className="w-4 h-4" />
+                      <BatteryFull className="w-5 h-5" />
+                    </div>
+                  </div>
+
+                  {/* Top Nav */}
+                  <div className="bg-[#313338] px-4 py-2 flex items-center justify-between relative z-10">
+                    <div className="flex items-center gap-3">
+                      <div className="relative">
+                        <Menu className="w-7 h-7 text-[#B5BAC1]" strokeWidth={2.5} />
+                        <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 bg-[#F23F42] rounded-full border-2 border-[#313338] flex items-center justify-center text-[9px] font-bold text-white">1</div>
+                      </div>
+                      <span className="font-bold text-[#F2F3F5] text-[19px] tracking-wide flex items-center gap-1">
+                        <span className="text-[#80848E] font-medium text-2xl leading-none -mt-1">#</span> deployments
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-4 text-[#B5BAC1]">
+                      <MessageSquarePlus className="w-6 h-6" strokeWidth={2} />
+                      <Search className="w-6 h-6" strokeWidth={2} />
+                    </div>
                   </div>
                   
-                  <div className="flex-1 p-4 flex flex-col gap-6 overflow-y-auto font-sans">
+                  {/* Chat Area */}
+                  <div className="flex-1 px-4 py-2 flex flex-col gap-6 overflow-hidden font-sans">
                     {/* User Prompt */}
-                    <div className="flex gap-3">
-                      <div className="w-9 h-9 rounded-full bg-[#5865F2] shrink-0 mt-0.5 flex justify-center items-center shadow-sm">
-                        <User className="w-5 h-5 text-white" />
+                    <div className="flex gap-4">
+                      <div className="w-10 h-10 rounded-full bg-[#5865F2] shrink-0 mt-0.5 flex justify-center items-center shadow-sm">
+                        <span className="text-white font-semibold text-lg">Y</span>
                       </div>
                       <div>
                         <div className="flex items-baseline gap-2">
-                          <span className="font-semibold text-[#F2F3F5] text-[15px]">You</span>
+                          <span className="font-semibold text-[#F2F3F5] text-[16px]">You</span>
                           <span className="text-[12px] text-[#949BA4] font-medium">11:42 AM</span>
                         </div>
-                        <div className="text-[#DBDEE1] text-[14px] mt-1 leading-snug">
-                          <span className="bg-[#41464D] text-[#DBDEE1] px-1.5 py-0.5 rounded text-[13px] font-mono mr-1">/beetle</span>
-                          <span className="text-[#00A8FC] bg-[#00A8FC]/10 px-1 rounded text-[13px] mr-1 font-medium">prompt:</span> Update my portfolio with a new project about GIS development.
+                        <div className="text-[#DBDEE1] text-[15px] mt-1 leading-snug">
+                          <span className="bg-[#41464D] text-[#DBDEE1] px-1.5 py-0.5 rounded text-[14px] font-mono mr-1">/beetle</span>
+                          <span className="text-[#00A8FC] bg-[#00A8FC]/10 px-1 rounded text-[14px] mr-1 font-medium">prompt:</span> Update my portfolio with a new project about GIS development.
                         </div>
                       </div>
                     </div>
 
                     {/* Bot Response */}
-                    <div className="flex gap-3">
-                      <div className="w-9 h-9 rounded-full bg-[#2B2D31] border border-[#1E1F22] flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
-                        <Bot className="w-5 h-5 text-[#DBDEE1]" />
+                    <div className="flex gap-4">
+                      <div className="w-10 h-10 rounded-full bg-[#2B2D31] border border-[#1E1F22] flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                        <Bot className="w-6 h-6 text-[#DBDEE1]" />
                       </div>
-                      <div>
+                      <div className="flex-1">
                         <div className="flex items-baseline gap-2">
-                          <span className="font-semibold text-[#F2F3F5] text-[15px]">Vibe Beetle</span>
+                          <span className="font-semibold text-[#F2F3F5] text-[16px]">Vibe Beetle</span>
                           <span className="bg-[#5865F2] text-white text-[10px] px-1.5 py-0.5 rounded font-bold uppercase tracking-wider">Bot</span>
+                          <span className="text-[12px] text-[#949BA4] font-medium ml-1">Today at 11:42 AM</span>
                         </div>
-                        <div className="bg-[#2B2D31] border-l-[4px] border-[#57F287] p-3.5 rounded mt-2 shadow-sm">
-                          <div className="flex items-center gap-1.5 font-bold text-[#57F287] mb-1.5 text-xs">
+                        <div className="bg-[#2B2D31] border-l-[4px] border-[#57F287] p-3.5 rounded mt-2 shadow-sm w-full">
+                          <div className="flex items-center gap-1.5 font-bold text-[#57F287] mb-2 text-sm">
                             <CheckCircle2 className="w-4 h-4" />
                             [SUCCESS] DEPLOYED
                           </div>
-                          <p className="text-[#DBDEE1] text-[13px] leading-relaxed mb-2">
+                          <p className="text-[#DBDEE1] text-[14px] leading-relaxed mb-3">
                             Content generated. GitHub updated.
                           </p>
-                          <a href="#" className="text-[#00A8FC] hover:underline text-[13px] font-medium flex items-center gap-1">
-                            <Globe className="w-3.5 h-3.5" /> vibebeetle.com/blog/gis
+                          <a href="#" className="text-[#00A8FC] hover:underline text-[14px] font-medium flex items-center gap-1.5 mb-4">
+                            <Globe className="w-4 h-4" /> vibebeetle.com/blog/gis
                           </a>
+                          <div className="text-[#949BA4] text-[12px] font-medium">
+                            Vibe Beetle • Deployed via Antigravity Bot
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                   
-                  {/* Chat Input */}
-                  <div className="p-4 bg-[#313338] border-t border-[#1E1F22]">
-                    <div className="bg-[#383A40] rounded-full h-10 w-full px-4 flex items-center text-[#949BA4] text-[14px] shadow-inner">
-                      Message #deployments
+                  {/* Chat Input Area */}
+                  <div className="px-4 py-3 bg-[#313338]">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full bg-[#4E5058] flex items-center justify-center shrink-0">
+                        <Plus className="w-5 h-5 text-[#DBDEE1]" strokeWidth={2.5} />
+                      </div>
+                      <Gift className="w-7 h-7 text-[#B5BAC1] shrink-0" />
+                      <div className="flex-1 bg-[#2B2D31] rounded-full h-10 px-4 flex items-center justify-between text-[#949BA4] text-[15px]">
+                        <span className="truncate">Message #de...</span>
+                        <Smile className="w-6 h-6 text-[#B5BAC1] shrink-0 ml-2" />
+                      </div>
+                      <Mic className="w-7 h-7 text-[#B5BAC1] shrink-0" />
                     </div>
                   </div>
+
+                  {/* Bottom Tab Bar */}
+                  <div className="bg-[#1E1F22] h-[88px] w-full flex justify-between items-start px-6 pt-3 relative z-20">
+                    <div className="flex flex-col items-center gap-1 text-[#80848E]">
+                      <Grid className="w-6 h-6" strokeWidth={2.5} />
+                      <span className="text-[10px] font-semibold">Servers</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-1 text-white">
+                      <MessageCircle className="w-6 h-6 fill-white" strokeWidth={0} />
+                      <span className="text-[10px] font-semibold">Chat</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-1 text-[#80848E]">
+                      <Search className="w-6 h-6" strokeWidth={2.5} />
+                      <span className="text-[10px] font-semibold">Search</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-1 text-[#80848E]">
+                      <Bell className="w-6 h-6" strokeWidth={2.5} />
+                      <span className="text-[10px] font-semibold">Notifications</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-1 text-[#80848E]">
+                      <User className="w-6 h-6" strokeWidth={2.5} />
+                      <span className="text-[10px] font-semibold">Profile</span>
+                    </div>
+
+                    {/* Home Indicator */}
+                    <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-white rounded-full"></div>
+                  </div>
+
                 </div>
               </div>
             </motion.div>
