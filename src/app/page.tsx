@@ -168,7 +168,7 @@ export default function Home() {
                 <span className="text-[10px] font-bold uppercase tracking-widest mt-4 text-[#5A5A5A]">Commit. Deploy.</span>
               </div>
             </div>
-            <p className="mt-8 text-sm font-medium text-[#A1A1A1] max-w-md">Vibe Beetle connects your favorite chat app to your favorite hosting provider. No laptop required.</p>
+            <p className="mt-8 text-sm font-medium text-[#A1A1A1] max-w-xl">You already subscribe to ChatGPT, Claude, xAI, etc. Turn that $20 sub into a powerhouse! Vibe Beetle allows you to use Discord, Slack, or Telegram to push, commit, and deploy 24/7. No extra fees required!</p>
           </motion.div>
         </section>
 
