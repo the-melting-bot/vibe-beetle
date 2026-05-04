@@ -90,10 +90,35 @@ export default function Home() {
       </div>
 
       {/* HEADER */}
-      <header className="sticky top-0 z-50 w-full px-4 md:px-10 py-2 flex justify-between items-center bg-[#FDFBF7]/85 backdrop-blur-[10px] border-b border-[#E5E0D8]/60 pt-[max(0.5rem,env(safe-area-inset-top))] transition-colors duration-300">
-        <div className="flex items-center gap-3">
-          <div className="relative w-[240px] h-[70px] md:w-[380px] md:h-[100px] flex items-center transition-transform hover:scale-105 active:scale-95 duration-500 z-10 drop-shadow-xl">
-            <Image src="/vibe_beetle_wordmark_spaced.png" alt="Vibe Beetle Full Logo" fill className="object-contain object-left" priority />
+      <header className="sticky top-0 z-50 w-full px-4 md:px-10 py-3 flex justify-between items-center bg-[#111111]/80 backdrop-blur-[12px] border-b border-[#333333]/50 pt-[max(0.75rem,env(safe-area-inset-top))] transition-colors duration-300">
+        <div className="flex items-center gap-4 animate-in fade-in duration-300">
+          <div className="relative w-[42px] h-[42px] md:w-[64px] md:h-[64px] flex items-center transition-transform hover:scale-105 active:scale-95 duration-500 z-10 shrink-0">
+            <div className="absolute inset-0 bg-[#FF00FF] rounded-full blur-[20px] opacity-30 pointer-events-none scale-110" />
+            <div className="absolute inset-0 bg-[#00E5FF] rounded-full blur-[10px] opacity-40 pointer-events-none" />
+            <Image src="/3d_cyber_beetle.png" alt="Vibe Beetle Cyber Scarab" fill className="object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] relative z-10" priority />
+          </div>
+          
+          <div className="flex items-center gap-2">
+            {/* VIBE - Neon Tube Style */}
+            <span 
+              className="text-2xl md:text-3xl font-black italic tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-[#00E5FF] via-[#00A3AA] to-[#FF00FF] animate-pulse"
+              style={{ filter: "drop-shadow(0 0 4px rgba(0,229,255,0.8)) drop-shadow(0 0 10px rgba(255,0,255,0.6))" }}
+            >
+              VIBE
+            </span>
+            {/* BEETLE - Heavy Bronze Cast Metal with Circuits */}
+            <span 
+              className="text-2xl md:text-3xl font-black tracking-widest"
+              style={{ 
+                backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm20 20h20v20H20V20zM0 20h20v20H0V20z' fill='%23000' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E\"), linear-gradient(180deg, #e6c280 0%, #8c6b36 40%, #3a2810 100%)",
+                backgroundSize: "20px 20px, auto",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                filter: "drop-shadow(0 2px 2px rgba(0,0,0,0.9)) drop-shadow(0 1px 0 rgba(255,255,255,0.2))" 
+              }}
+            >
+              BEETLE
+            </span>
           </div>
         </div>
         
