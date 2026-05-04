@@ -93,7 +93,7 @@ export default function Home() {
       <header className="sticky top-0 z-50 w-full px-4 md:px-10 py-3 flex justify-between items-center bg-[#FDFBF7]/85 backdrop-blur-[10px] border-b border-[#E5E0D8]/60 pt-[max(0.75rem,env(safe-area-inset-top))] transition-colors duration-300">
         <div className="flex items-center gap-4 animate-in fade-in duration-300">
           <div className="relative w-[42px] h-[42px] md:w-[64px] md:h-[64px] flex items-center transition-transform hover:scale-105 active:scale-95 duration-500 z-10 shrink-0">
-            <Image src="/cyber_beetle_isolated.png" alt="Vibe Beetle Cyber Scarab" fill className="object-contain drop-shadow-lg relative z-10" priority />
+            <Image src="/cyber_beetle_v2.png" alt="Vibe Beetle Cyber Scarab" fill className="object-contain drop-shadow-lg relative z-10" priority />
           </div>
           
           <div className="flex items-center gap-2">
