@@ -131,7 +131,7 @@ export default function Home() {
                     <Image src="/3d_telegram.png" alt="Telegram 3D" fill className="object-contain rounded-2xl mix-blend-multiply" />
                   </div>
                 </div>
-                <span className="text-[10px] font-bold uppercase tracking-widest mt-4 text-[#5A5A5A]">Pick Your Vibe</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest mt-4 text-[#5A5A5A]">App of Choice</span>
               </div>
 
               {/* Connecting Line 1 */}
