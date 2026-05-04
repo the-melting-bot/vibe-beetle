@@ -34,10 +34,48 @@ const GithubIcon = ({ className }: { className?: string }) => (
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [isDeployed, setIsDeployed] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
+    let timeoutId: NodeJS.Timeout;
+
+    const simulateProgress = () => {
+      setProgress((prev) => {
+        if (prev >= 100) return 100;
+        
+        // Random increment between 1 and 8
+        const increment = Math.floor(Math.random() * 8) + 1;
+        const next = Math.min(prev + increment, 100);
+        
+        if (next === 100) {
+          setIsDeployed(true);
+        }
+        
+        return next;
+      });
+    };
+
+    if (progress < 100) {
+      // Slow down the progress significantly between 80-99 to simulate deployment
+      const delay = progress > 80 ? Math.random() * 400 + 200 : Math.random() * 100 + 50;
+      timeoutId = setTimeout(simulateProgress, delay);
+    } else {
+      // Wait 4 seconds on success, then reset
+      timeoutId = setTimeout(() => {
+        setProgress(0);
+        setIsDeployed(false);
+      }, 4000);
+    }
+
+    return () => clearTimeout(timeoutId);
+  }, [progress, mounted]);
 
   if (!mounted) return null;
 
@@ -382,8 +420,8 @@ export default function Home() {
                       <span className="font-mono text-sm">AustinRealEstate.net</span>
                     </div>
                   </div>
-                  <div className="text-right">
-                    <span className="block text-4xl font-bold tracking-tighter text-[#2C3B2E] mb-1">85%</span>
+                  <div className="text-right w-24">
+                    <span className="block text-4xl font-bold tracking-tighter text-[#2C3B2E] mb-1">{Math.floor(progress)}%</span>
                     <span className="text-xs font-bold uppercase tracking-widest text-[#A1A1A1]">Complete</span>
                   </div>
                 </div>
@@ -392,8 +430,8 @@ export default function Home() {
                 <div className="w-full h-3 bg-[#F5F2EB] rounded-full overflow-hidden mb-6 border border-[#E5E0D8]">
                   <motion.div 
                     initial={{ width: "0%" }}
-                    whileInView={{ width: "85%" }}
-                    transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
+                    animate={{ width: `${progress}%` }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
                     className="h-full bg-gradient-to-r from-[#2C3B2E] to-[#00F3FF] rounded-full relative"
                   >
                     <div className="absolute top-0 right-0 bottom-0 w-20 bg-gradient-to-r from-transparent to-white opacity-30"></div>
@@ -411,8 +449,17 @@ export default function Home() {
                     <span>[SUCCESS] AI generated highly-optimized content...</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Loader2 className="w-4 h-4 text-[#00F3FF] animate-spin" />
-                    <span className="text-[#1A1A1A] font-bold">Pushing static files to Vercel production edge...</span>
+                    {!isDeployed ? (
+                      <>
+                        <Loader2 className="w-4 h-4 text-[#00F3FF] animate-spin" />
+                        <span className="text-[#1A1A1A] font-bold">Pushing static files to Vercel production edge...</span>
+                      </>
+                    ) : (
+                      <>
+                        <CheckCircle2 className="w-4 h-4 text-[#57F287]" />
+                        <span className="text-[#57F287] font-bold">[SUCCESS] Successfully Deployed!</span>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
