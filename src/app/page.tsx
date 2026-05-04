@@ -90,11 +90,11 @@ export default function Home() {
       </div>
 
       {/* HEADER */}
-      <header className="relative z-50 w-full px-6 md:px-10 py-4 flex justify-between items-center bg-[#FDFBF7] border-b border-[#E5E0D8] pt-[max(1rem,env(safe-area-inset-top))] transition-colors duration-300">
-        <div className="flex items-center">
+      <header className="sticky top-0 z-50 w-full px-4 md:px-10 py-4 flex justify-between items-center bg-[#FDFBF7]/85 backdrop-blur-[10px] border-b border-[#E5E0D8]/60 pt-[max(1rem,env(safe-area-inset-top))] transition-colors duration-300">
+        <div className="flex items-center gap-3">
           <div className="relative flex items-center transition-transform hover:scale-105 active:scale-95 duration-500 z-10">
             {/* Mobile Logo */}
-            <div className="relative w-[32px] h-[32px] md:hidden drop-shadow-lg">
+            <div className="relative w-[36px] h-[36px] md:hidden drop-shadow-lg shrink-0">
               <Image src="/mobile_beetle_icon.png" alt="Vibe Beetle Mobile Icon" fill className="object-contain" />
             </div>
             {/* Desktop Logo */}
@@ -102,6 +102,10 @@ export default function Home() {
               <Image src="/vblogo_final.png" alt="Vibe Beetle Emblem" fill className="object-contain object-left" />
             </div>
           </div>
+          {/* Mobile Wordmark */}
+          <span className="md:hidden text-[14px] font-semibold tracking-[0.15em] text-[#1A1A1A] uppercase">
+            Vibe Beetle
+          </span>
         </div>
         
         <div className="flex items-center gap-6 lg:gap-10">
