@@ -90,12 +90,10 @@ export default function Home() {
       </div>
 
       {/* HEADER */}
-      <header className="sticky top-0 z-50 w-full px-4 md:px-10 py-3 flex justify-between items-center bg-[#111111]/80 backdrop-blur-[12px] border-b border-[#333333]/50 pt-[max(0.75rem,env(safe-area-inset-top))] transition-colors duration-300">
+      <header className="sticky top-0 z-50 w-full px-4 md:px-10 py-3 flex justify-between items-center bg-[#FDFBF7]/85 backdrop-blur-[10px] border-b border-[#E5E0D8]/60 pt-[max(0.75rem,env(safe-area-inset-top))] transition-colors duration-300">
         <div className="flex items-center gap-4 animate-in fade-in duration-300">
           <div className="relative w-[42px] h-[42px] md:w-[64px] md:h-[64px] flex items-center transition-transform hover:scale-105 active:scale-95 duration-500 z-10 shrink-0">
-            <div className="absolute inset-0 bg-[#FF00FF] rounded-full blur-[20px] opacity-30 pointer-events-none scale-110" />
-            <div className="absolute inset-0 bg-[#00E5FF] rounded-full blur-[10px] opacity-40 pointer-events-none" />
-            <Image src="/3d_cyber_beetle.png" alt="Vibe Beetle Cyber Scarab" fill className="object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] relative z-10" priority />
+            <Image src="/cyber_beetle_isolated.png" alt="Vibe Beetle Cyber Scarab" fill className="object-contain drop-shadow-lg relative z-10" priority />
           </div>
           
           <div className="flex items-center gap-2">
