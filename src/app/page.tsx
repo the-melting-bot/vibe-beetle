@@ -92,9 +92,15 @@ export default function Home() {
       {/* HEADER */}
       <header className="relative z-50 w-full px-6 md:px-10 py-4 flex justify-between items-center bg-[#FDFBF7] border-b border-[#E5E0D8] pt-[max(1rem,env(safe-area-inset-top))] transition-colors duration-300">
         <div className="flex items-center">
-          {/* Logo scales to 28px on mobile, larger on desktop */}
-          <div className="relative w-[36px] h-[36px] md:w-24 md:h-24 drop-shadow-xl transition-transform hover:scale-105 active:scale-95 duration-500 z-10">
-            <Image src="/vblogo_final.png" alt="Vibe Beetle Emblem" fill className="object-contain object-left" />
+          <div className="relative flex items-center transition-transform hover:scale-105 active:scale-95 duration-500 z-10">
+            {/* Mobile Logo */}
+            <div className="relative w-[32px] h-[32px] md:hidden drop-shadow-lg">
+              <Image src="/mobile_beetle_icon.png" alt="Vibe Beetle Mobile Icon" fill className="object-contain" />
+            </div>
+            {/* Desktop Logo */}
+            <div className="relative hidden md:block w-24 h-24 drop-shadow-xl">
+              <Image src="/vblogo_final.png" alt="Vibe Beetle Emblem" fill className="object-contain object-left" />
+            </div>
           </div>
         </div>
         
