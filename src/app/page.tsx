@@ -632,18 +632,18 @@ export default function Home() {
       </main>
 
       {/* FOOTER */}
-      <footer className="w-full border-t border-[#E5E0D8] bg-[#FDFBF7] py-12 px-8 flex flex-col md:flex-row justify-center md:justify-between items-center z-20 gap-6">
+      <footer className="w-full border-t border-[#E5E0D8] bg-[#FDFBF7] py-12 px-8 flex flex-col md:flex-row justify-center md:justify-between items-center z-20 gap-8">
         <a 
           href="https://themeltingbot.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex flex-col md:flex-row items-center gap-2.5 bg-transparent md:bg-white md:border md:border-[#E5E0D8] md:shadow-[0_2px_0_0_#E5E0D8] md:hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] md:hover:border-[#D1C9B8] md:rounded-full md:pl-2 md:pr-4 md:py-1.5 md:hover:-translate-y-0.5 transition-all duration-300"
+          className="group flex flex-row items-center gap-3 bg-gradient-to-b from-[#FFFFFF] to-[#F5F2EB] border border-[#E5E0D8] shadow-[0_4px_0_0_#D1C9B8,0_10px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_2px_0_0_#D1C9B8,0_5px_10px_rgba(0,0,0,0.05)] hover:translate-y-[2px] active:shadow-[0_0px_0_0_#D1C9B8,0_0px_0px_rgba(0,0,0,0)] active:translate-y-[4px] rounded-full pl-2 pr-5 py-2 transition-all duration-200"
         >
-          <div className="w-10 h-10 md:w-7 md:h-7 rounded-full bg-[#F5F2EB] border border-[#E5E0D8] flex items-center justify-center group-hover:bg-[#2C3B2E] group-hover:border-[#2C3B2E] transition-colors duration-300 relative overflow-hidden mb-2 md:mb-0">
-             <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-             <Bot className="w-5 h-5 md:w-3.5 md:h-3.5 text-[#2C3B2E] group-hover:text-[#00F3FF] transition-colors duration-300 relative z-10" />
+          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#2C3B2E] to-[#1A241C] shadow-inner flex items-center justify-center relative overflow-hidden shrink-0">
+             <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent opacity-50"></div>
+             <Bot className="w-4 h-4 text-[#00E5FF] relative z-10" />
           </div>
-          <span className="text-[#1A1A1A] md:text-[#2C3B2E] font-bold text-[15px] md:text-sm tracking-wide group-hover:text-[#000000] md:group-hover:text-[#1A1A1A] transition-colors">Built by The Melting Bot</span>
+          <span className="text-[#2C3B2E] font-black text-sm tracking-wide uppercase">Built by The Melting Bot</span>
         </a>
         <p className="text-[#A1A1A1] text-xs font-bold uppercase tracking-widest text-center">AUTONOMOUS WEB EMPIRES</p>
       </footer>
