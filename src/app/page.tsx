@@ -90,11 +90,13 @@ export default function Home() {
       </div>
 
       {/* HEADER */}
-      <header className="relative z-50 w-full px-6 md:px-10 py-4 flex justify-between items-center border-b border-[#E5E0D8] bg-[#FDFBF7] pt-[max(1rem,env(safe-area-inset-top))]">
+      <header className={`relative z-50 w-full px-6 md:px-10 py-4 flex justify-between items-center transition-colors duration-300 ${isMenuOpen ? 'bg-[#111111]' : 'bg-[#111111] md:bg-[#FDFBF7] border-b-0 md:border-b md:border-[#E5E0D8]'} pt-[max(1rem,env(safe-area-inset-top))]`}>
         <div className="flex items-center">
           {/* Logo scales to 28px on mobile, larger on desktop */}
-          <div className="relative w-[28px] h-[28px] md:w-24 md:h-24 drop-shadow-xl transition-transform hover:scale-105 active:scale-95 duration-500">
-            <Image src="/vblogo_final.png" alt="Vibe Beetle Emblem" fill className="object-contain object-left" />
+          <div className="relative w-[36px] h-[36px] md:w-24 md:h-24 drop-shadow-xl transition-transform hover:scale-105 active:scale-95 duration-500">
+            {/* The neon cyan glow behind the logo on mobile */}
+            <div className="absolute inset-0 bg-[#00E5FF] rounded-full blur-md opacity-50 md:opacity-0 pointer-events-none scale-90"></div>
+            <Image src="/vblogo_final.png" alt="Vibe Beetle Emblem" fill className="object-contain object-left relative z-10" />
           </div>
         </div>
         
@@ -112,12 +114,12 @@ export default function Home() {
 
           {/* MOBILE HAMBURGER MENU */}
           <button 
-            className="md:hidden relative z-50 p-2 text-[#00A3AA] active:text-[#00E5FF] transition-colors min-h-[44px] flex flex-col justify-center gap-1.5"
+            className="md:hidden relative z-50 p-2 text-[#FDFBF7] active:text-[#00E5FF] transition-colors min-h-[44px] flex flex-col justify-center gap-1.5 drop-shadow-[0_0_8px_rgba(253,251,247,0.5)]"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <motion.div animate={isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }} className="w-6 h-0.5 bg-current rounded-full shadow-[0_0_8px_currentColor]" />
-            <motion.div animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }} className="w-6 h-0.5 bg-current rounded-full shadow-[0_0_8px_currentColor]" />
-            <motion.div animate={isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }} className="w-6 h-0.5 bg-current rounded-full shadow-[0_0_8px_currentColor]" />
+            <motion.div animate={isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }} className="w-7 h-[3px] bg-current rounded-full shadow-[0_0_8px_currentColor]" />
+            <motion.div animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }} className="w-7 h-[3px] bg-current rounded-full shadow-[0_0_8px_currentColor]" />
+            <motion.div animate={isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }} className="w-7 h-[3px] bg-current rounded-full shadow-[0_0_8px_currentColor]" />
           </button>
         </div>
       </header>
@@ -126,19 +128,19 @@ export default function Home() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
+            initial={{ opacity: 0, y: "-10%" }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: "-10%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-40 bg-[#000000]/90 backdrop-blur-md flex flex-col items-center justify-center pt-[env(safe-area-inset-top)]"
+            className="md:hidden fixed top-[calc(max(1rem,env(safe-area-inset-top))+68px)] inset-x-0 z-40 bg-[#111111] rounded-b-[2.5rem] shadow-[0_20px_40px_rgba(0,0,0,0.2)] pb-8 pt-4 px-8 flex flex-col"
           >
-            <nav className="flex flex-col items-center gap-10 text-xl font-bold uppercase tracking-[0.2em] text-[#00E5FF] drop-shadow-[0_0_10px_rgba(0,229,255,0.5)] w-full px-6">
-              <a href="#the-bridge" onClick={() => setIsMenuOpen(false)} className="hover:text-white active:text-white transition-colors py-2">The Bridge</a>
-              <a href="#how-it-works" onClick={() => setIsMenuOpen(false)} className="hover:text-white active:text-white transition-colors py-2">How It Works</a>
-              <a href="#manage-fleet" onClick={() => setIsMenuOpen(false)} className="hover:text-white active:text-white transition-colors py-2">Activity</a>
-              <a href="#pricing" onClick={() => setIsMenuOpen(false)} className="hover:text-white active:text-white transition-colors py-2">Pricing</a>
+            <nav className="flex flex-col items-center gap-8 text-[15px] font-bold uppercase tracking-widest text-[#FDFBF7] w-full">
+              <a href="#the-bridge" onClick={() => setIsMenuOpen(false)} className="hover:text-[#00E5FF] active:text-[#00E5FF] transition-colors py-2">The Bridge</a>
+              <a href="#how-it-works" onClick={() => setIsMenuOpen(false)} className="hover:text-[#00E5FF] active:text-[#00E5FF] transition-colors py-2">How It Works</a>
+              <a href="#manage-fleet" onClick={() => setIsMenuOpen(false)} className="hover:text-[#00E5FF] active:text-[#00E5FF] transition-colors py-2">Activity</a>
+              <a href="#pricing" onClick={() => setIsMenuOpen(false)} className="hover:text-[#00E5FF] active:text-[#00E5FF] transition-colors py-2">Pricing</a>
               
-              <button className="mt-8 w-full max-w-[280px] min-h-[44px] flex items-center justify-center bg-[#00A3AA] active:bg-[#00D0E6] text-white font-bold uppercase tracking-widest text-sm rounded-sm transition-all shadow-[0_0_20px_rgba(0,163,170,0.6)]">
+              <button className="mt-4 w-full max-w-[300px] min-h-[50px] flex items-center justify-center bg-[#222222] active:bg-[#333333] text-[#FDFBF7] font-bold uppercase tracking-widest text-[13px] rounded-full transition-all shadow-md">
                 Launch App
               </button>
             </nav>
@@ -630,20 +632,20 @@ export default function Home() {
       </main>
 
       {/* FOOTER */}
-      <footer className="w-full border-t border-[#E5E0D8] bg-[#FDFBF7] py-12 px-8 flex justify-between items-center z-20">
+      <footer className="w-full border-t border-[#E5E0D8] bg-[#FDFBF7] py-12 px-8 flex flex-col md:flex-row justify-center md:justify-between items-center z-20 gap-6">
         <a 
           href="https://themeltingbot.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex items-center gap-2.5 bg-white border border-[#E5E0D8] shadow-[0_2px_0_0_#E5E0D8] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-[#D1C9B8] rounded-full pl-2 pr-4 py-1.5 hover:-translate-y-0.5 transition-all duration-300"
+          className="group flex flex-col md:flex-row items-center gap-2.5 bg-transparent md:bg-white md:border md:border-[#E5E0D8] md:shadow-[0_2px_0_0_#E5E0D8] md:hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] md:hover:border-[#D1C9B8] md:rounded-full md:pl-2 md:pr-4 md:py-1.5 md:hover:-translate-y-0.5 transition-all duration-300"
         >
-          <div className="w-7 h-7 rounded-full bg-[#F5F2EB] border border-[#E5E0D8] flex items-center justify-center group-hover:bg-[#2C3B2E] group-hover:border-[#2C3B2E] transition-colors duration-300 relative overflow-hidden">
+          <div className="w-10 h-10 md:w-7 md:h-7 rounded-full bg-[#F5F2EB] border border-[#E5E0D8] flex items-center justify-center group-hover:bg-[#2C3B2E] group-hover:border-[#2C3B2E] transition-colors duration-300 relative overflow-hidden mb-2 md:mb-0">
              <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-             <Bot className="w-3.5 h-3.5 text-[#2C3B2E] group-hover:text-[#00F3FF] transition-colors duration-300 relative z-10" />
+             <Bot className="w-5 h-5 md:w-3.5 md:h-3.5 text-[#2C3B2E] group-hover:text-[#00F3FF] transition-colors duration-300 relative z-10" />
           </div>
-          <span className="text-[#2C3B2E] font-bold text-sm tracking-wide group-hover:text-[#1A1A1A] transition-colors">Built by The Melting Bot</span>
+          <span className="text-[#1A1A1A] md:text-[#2C3B2E] font-bold text-[15px] md:text-sm tracking-wide group-hover:text-[#000000] md:group-hover:text-[#1A1A1A] transition-colors">Built by The Melting Bot</span>
         </a>
-        <p className="text-[#A1A1A1] text-xs font-bold uppercase tracking-widest">AUTONOMOUS WEB EMPIRES</p>
+        <p className="text-[#A1A1A1] text-xs font-bold uppercase tracking-widest text-center">AUTONOMOUS WEB EMPIRES</p>
       </footer>
     </div>
   );
