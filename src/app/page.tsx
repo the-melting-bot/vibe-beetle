@@ -89,14 +89,11 @@ export default function Home() {
       </div>
 
       {/* HEADER */}
-      <header className="relative z-20 w-full px-6 md:px-10 py-5 flex justify-between items-center border-b border-[#E5E0D8] bg-[#FDFBF7]">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 relative flex items-center justify-center mix-blend-multiply drop-shadow-sm">
-            <Image src="/3d_cyber_beetle.png" alt="Vibe Beetle Logo" fill className="object-contain" />
+      <header className="relative z-20 w-full px-6 md:px-10 py-4 md:py-5 flex justify-between items-center border-b border-[#E5E0D8] bg-[#FDFBF7]">
+        <div className="flex items-center">
+          <div className="w-48 sm:w-56 md:w-64 h-12 md:h-16 relative flex items-center justify-start mix-blend-multiply drop-shadow-sm transition-transform hover:scale-105 duration-300">
+            <Image src="/wide_beetle_logo.png" alt="Vibe Beetle" fill className="object-contain object-left" />
           </div>
-          <span className="font-bold tracking-widest text-[15px] uppercase text-[#1A1A1A] mt-0.5">
-            VIBE BEETLE
-          </span>
         </div>
         
         <div className="flex items-center gap-8 lg:gap-10">
