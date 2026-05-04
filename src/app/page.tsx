@@ -588,9 +588,12 @@ export default function Home() {
       </main>
 
       {/* FOOTER */}
-      <footer className="w-full border-t border-[#E5E0D8] bg-[#FDFBF7] py-12 px-8 flex justify-between items-center text-[#A1A1A1] text-xs font-bold uppercase tracking-widest z-20">
-        <p>VIBE BEETLE OS © 2026</p>
-        <p>AUTONOMOUS WEB EMPIRES</p>
+      <footer className="w-full border-t border-[#E5E0D8] bg-[#FDFBF7] py-12 px-8 flex justify-between items-center z-20">
+        <div className="flex items-center gap-2 bg-white border border-[#E5E0D8] shadow-[0_2px_0_0_#E5E0D8] rounded-full px-4 py-2">
+          <Bot className="w-4 h-4 text-[#2C3B2E]" />
+          <span className="text-[#2C3B2E] font-bold text-sm tracking-wide">Built by The Melting Bot</span>
+        </div>
+        <p className="text-[#A1A1A1] text-xs font-bold uppercase tracking-widest">AUTONOMOUS WEB EMPIRES</p>
       </footer>
     </div>
   );
