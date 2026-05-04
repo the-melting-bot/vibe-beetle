@@ -90,13 +90,11 @@ export default function Home() {
       </div>
 
       {/* HEADER */}
-      <header className={`relative z-50 w-full px-6 md:px-10 py-4 flex justify-between items-center transition-colors duration-300 ${isMenuOpen ? 'bg-[#111111]' : 'bg-[#111111] md:bg-[#FDFBF7] border-b-0 md:border-b md:border-[#E5E0D8]'} pt-[max(1rem,env(safe-area-inset-top))]`}>
+      <header className="relative z-50 w-full px-6 md:px-10 py-4 flex justify-between items-center bg-[#FDFBF7] border-b border-[#E5E0D8] pt-[max(1rem,env(safe-area-inset-top))] transition-colors duration-300">
         <div className="flex items-center">
           {/* Logo scales to 28px on mobile, larger on desktop */}
-          <div className="relative w-[36px] h-[36px] md:w-24 md:h-24 drop-shadow-xl transition-transform hover:scale-105 active:scale-95 duration-500">
-            {/* The neon cyan glow behind the logo on mobile */}
-            <div className="absolute inset-0 bg-[#00E5FF] rounded-full blur-md opacity-50 md:opacity-0 pointer-events-none scale-90"></div>
-            <Image src="/vblogo_final.png" alt="Vibe Beetle Emblem" fill className="object-contain object-left relative z-10" />
+          <div className="relative w-[36px] h-[36px] md:w-24 md:h-24 drop-shadow-xl transition-transform hover:scale-105 active:scale-95 duration-500 z-10">
+            <Image src="/vblogo_final.png" alt="Vibe Beetle Emblem" fill className="object-contain object-left" />
           </div>
         </div>
         
@@ -114,12 +112,12 @@ export default function Home() {
 
           {/* MOBILE HAMBURGER MENU */}
           <button 
-            className="md:hidden relative z-50 p-2 text-[#FDFBF7] active:text-[#00E5FF] transition-colors min-h-[44px] flex flex-col justify-center gap-1.5 drop-shadow-[0_0_8px_rgba(253,251,247,0.5)]"
+            className="md:hidden relative z-50 p-2 text-[#00A3AA] active:text-[#00E5FF] transition-colors min-h-[44px] flex flex-col justify-center gap-1.5"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <motion.div animate={isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }} className="w-7 h-[3px] bg-current rounded-full shadow-[0_0_8px_currentColor]" />
-            <motion.div animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }} className="w-7 h-[3px] bg-current rounded-full shadow-[0_0_8px_currentColor]" />
-            <motion.div animate={isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }} className="w-7 h-[3px] bg-current rounded-full shadow-[0_0_8px_currentColor]" />
+            <motion.div animate={isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }} className="w-7 h-[3px] bg-current rounded-full shadow-[0_0_4px_rgba(0,163,170,0.4)]" />
+            <motion.div animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }} className="w-7 h-[3px] bg-current rounded-full shadow-[0_0_4px_rgba(0,163,170,0.4)]" />
+            <motion.div animate={isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }} className="w-7 h-[3px] bg-current rounded-full shadow-[0_0_4px_rgba(0,163,170,0.4)]" />
           </button>
         </div>
       </header>
@@ -132,15 +130,15 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: "-10%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="md:hidden fixed top-[calc(max(1rem,env(safe-area-inset-top))+68px)] inset-x-0 z-40 bg-[#111111] rounded-b-[2.5rem] shadow-[0_20px_40px_rgba(0,0,0,0.2)] pb-8 pt-4 px-8 flex flex-col"
+            className="md:hidden fixed top-[calc(max(1rem,env(safe-area-inset-top))+68px)] inset-x-0 z-40 bg-[#FDFBF7] border-b border-[#E5E0D8] rounded-b-[2.5rem] shadow-[0_20px_40px_rgba(0,0,0,0.1)] pb-8 pt-4 px-8 flex flex-col"
           >
-            <nav className="flex flex-col items-center gap-8 text-[15px] font-bold uppercase tracking-widest text-[#FDFBF7] w-full">
-              <a href="#the-bridge" onClick={() => setIsMenuOpen(false)} className="hover:text-[#00E5FF] active:text-[#00E5FF] transition-colors py-2">The Bridge</a>
-              <a href="#how-it-works" onClick={() => setIsMenuOpen(false)} className="hover:text-[#00E5FF] active:text-[#00E5FF] transition-colors py-2">How It Works</a>
-              <a href="#manage-fleet" onClick={() => setIsMenuOpen(false)} className="hover:text-[#00E5FF] active:text-[#00E5FF] transition-colors py-2">Activity</a>
-              <a href="#pricing" onClick={() => setIsMenuOpen(false)} className="hover:text-[#00E5FF] active:text-[#00E5FF] transition-colors py-2">Pricing</a>
+            <nav className="flex flex-col items-center gap-8 text-[15px] font-bold uppercase tracking-widest text-[#1A1A1A] w-full">
+              <a href="#the-bridge" onClick={() => setIsMenuOpen(false)} className="hover:text-[#00A3AA] active:text-[#00A3AA] transition-colors py-2">The Bridge</a>
+              <a href="#how-it-works" onClick={() => setIsMenuOpen(false)} className="hover:text-[#00A3AA] active:text-[#00A3AA] transition-colors py-2">How It Works</a>
+              <a href="#manage-fleet" onClick={() => setIsMenuOpen(false)} className="hover:text-[#00A3AA] active:text-[#00A3AA] transition-colors py-2">Activity</a>
+              <a href="#pricing" onClick={() => setIsMenuOpen(false)} className="hover:text-[#00A3AA] active:text-[#00A3AA] transition-colors py-2">Pricing</a>
               
-              <button className="mt-4 w-full max-w-[300px] min-h-[50px] flex items-center justify-center bg-[#222222] active:bg-[#333333] text-[#FDFBF7] font-bold uppercase tracking-widest text-[13px] rounded-full transition-all shadow-md">
+              <button className="mt-4 w-full max-w-[300px] min-h-[50px] flex items-center justify-center bg-[#00A3AA] active:bg-[#00D0E6] text-white font-bold uppercase tracking-widest text-[13px] rounded-full transition-all shadow-[0_0_15px_rgba(0,163,170,0.4)]">
                 Launch App
               </button>
             </nav>
